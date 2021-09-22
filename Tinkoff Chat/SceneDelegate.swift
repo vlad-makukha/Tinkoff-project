@@ -10,7 +10,7 @@ import UIKit
 @available(iOS 13.0, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
-    let logFor = Log()
+    let logger = Logger()
 
     var window: UIWindow?
 
@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        logFor.DLog(message: "Application moved from FOREGROUND INACTIVE to FOREGROUND ACTIVE")
+        logger.log(message: "Application moved from FOREGROUND INACTIVE to FOREGROUND ACTIVE")
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 
@@ -28,32 +28,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
         // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
-        logFor.DLog(message: "Application moved from BACKGROUND to UNATTACHED")
+        logger.log(message: "Application moved from BACKGROUND to UNATTACHED")
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
-        logFor.DLog(message: "Application moved from FOREGROUND INACTIVE to FOREGROUND ACTIVE")
+        logger.log(message: "Application moved from FOREGROUND INACTIVE to FOREGROUND ACTIVE")
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).
-        logFor.DLog(message: "Application moved from FOREGROUND ACTIVE to FOREGROUND INACTIVE")
+        logger.log(message: "Application moved from FOREGROUND ACTIVE to FOREGROUND INACTIVE")
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
-        logFor.DLog(message: "Application moved from BACKGROUND to FOREGROUND INACTIVE")
+        logger.log(message: "Application moved from BACKGROUND to FOREGROUND INACTIVE")
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
-        logFor.DLog(message: "Application moved from FOREGROUND INACTIVE to BACKGROUND")
+        logger.log(message: "Application moved from FOREGROUND INACTIVE to BACKGROUND")
     }
 
 

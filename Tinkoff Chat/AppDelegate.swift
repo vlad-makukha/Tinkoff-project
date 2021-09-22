@@ -12,31 +12,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    let logFor = Log()
+    let logFor = Logger()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        logFor.DLog(message: "Application moved from INACTIVE to ACTIVE")
+        logFor.log(message: "Application moved from NOT RUNNING to FOREGROUND INACTIVE")
         return true
     }
     
     func applicationWillResignActive(_ application: UIApplication){
-        logFor.DLog(message: "Application moved from ACTIVE to INACTIVE")
+        logFor.log(message: "Application moved from FOREGROUND ACTIVE to FOREGROUND INACTIVE")
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        logFor.DLog(message: "Application moved from INACTIVE to BACKGROUND")
+        logFor.log(message: "Application moved from FOREGROUND INACTIVE to BACKGROUND")
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
-        logFor.DLog(message: "Application moved from BACKGROUND to INACTIVE")
+        logFor.log(message: "Application moved from BACKGROUND to FOREGROUND INACTIVE")
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        logFor.DLog(message: "Application moved from INACTIVE to ACTIVE")
+        logFor.log(message: "Application moved from FOREGROUND INACTIVE to FOREGROUND ACTIVE")
     }
     
     func applicationWillTerminate(_ application: UIApplication){
-        logFor.DLog(message: "Application moved from BACKGROUND to NOT RUNNING")
+        logFor.log(message: "Application moved from SUSPEND to NOT RUNNING")
     }
 
     // MARK: UISceneSession Lifecycle

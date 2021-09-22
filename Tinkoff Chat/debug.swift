@@ -7,11 +7,12 @@
 
 import Foundation
 
-class Log {
-
-    func DLog(message: String, function: String = #function) {
-    #if DEBUG
-      print("\(message) : \(function)")
-    #endif
-  }
+class Logger {
+    
+    func log(message: String, function: String = #function) {
+        let isDebugEnabled = CommandLine.arguments.contains("--debug")
+        if isDebugEnabled {
+            print("\(message) : \(function)")
+        }
+    }
 }
