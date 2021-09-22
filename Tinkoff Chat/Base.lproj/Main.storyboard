@@ -16,16 +16,76 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erW-Nc-ACB">
+                                <rect key="frame" x="74.666666666666686" y="344.66666666666669" width="265" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="265" id="JXU-3n-JI2"/>
+                                    <constraint firstAttribute="height" constant="47" id="ZEm-8J-OjY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <state key="normal" title="Open View Controller">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="OpenSecondVC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G14-g5-d5z"/>
+                                    <segue destination="WBQ-O0-bZp" kind="show" id="0Ly-b9-rho"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <constraints>
+                            <constraint firstItem="erW-Nc-ACB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5Mu-q0-cF1"/>
+                            <constraint firstItem="erW-Nc-ACB" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="ey5-xP-SrJ"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-23" y="65"/>
         </scene>
+        <!--Second View Controller-->
+        <scene sceneID="huJ-7a-1MS">
+            <objects>
+                <viewController id="WBQ-O0-bZp" customClass="SecondViewController" customModule="Tinkoff_Chat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Znv-jL-Q2z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvt-AX-0Za">
+                                <rect key="frame" x="73" y="334.66666666666669" width="268" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="AMt-7K-clQ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="268" id="aP1-MS-np2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <state key="normal" title="Close View Controller">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="CloseSecondVC:" destination="WBQ-O0-bZp" eventType="touchUpInside" id="7fs-cH-4Ec"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="R4Q-Qd-SPu"/>
+                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                        <constraints>
+                            <constraint firstItem="bvt-AX-0Za" firstAttribute="centerY" secondItem="R4Q-Qd-SPu" secondAttribute="centerY" id="AV9-je-5mx"/>
+                            <constraint firstItem="bvt-AX-0Za" firstAttribute="centerX" secondItem="R4Q-Qd-SPu" secondAttribute="centerX" id="o8i-Op-xja"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="iFN-s9-95L"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wUM-dh-liv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="736" y="64"/>
+        </scene>
     </scenes>
     <resources>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
