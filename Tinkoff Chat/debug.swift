@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+class Log {
+
+    func DLog(message: String, function: String = #function) {
+    #if DEBUG
+      print("\(message) : \(function)")
+    #endif
+  }
+}
