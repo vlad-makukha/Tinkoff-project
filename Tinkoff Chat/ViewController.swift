@@ -11,6 +11,13 @@ class ViewController: UIViewController {
     
     let logFor = Logger()
 
+    @IBOutlet weak var profilePictureImageView: UIImageView!
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var initialsLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var profileDescriptionLabel: UILabel!
+    
     // Срабатывает после загрузки View
     override func viewDidLoad() {
         super.viewDidLoad()
