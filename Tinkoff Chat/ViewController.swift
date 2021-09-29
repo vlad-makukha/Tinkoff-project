@@ -31,7 +31,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!{
         didSet{
-            saveButton.layer.cornerRadius = saveButton.frame.size.height / 2
+            saveButton.layer.cornerRadius = 18
             saveButton.layer.masksToBounds = true
         }
     }

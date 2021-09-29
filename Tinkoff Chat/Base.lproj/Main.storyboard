@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,70 +17,73 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7bw-e8-PTX">
-                                <rect key="frame" x="62.5" y="74" width="250" height="250"/>
+                                <rect key="frame" x="67.5" y="80" width="240" height="240"/>
                                 <color key="backgroundColor" red="0.74956429697037652" green="0.81189310919378221" blue="0.039245757843085607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="7dK-l9-80U"/>
-                                    <constraint firstAttribute="width" constant="250" id="9IL-Vw-28e"/>
+                                    <constraint firstAttribute="width" constant="240" id="BoW-Fw-dCW"/>
+                                    <constraint firstAttribute="height" constant="240" id="aXY-u1-2uF"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UX/UI Designer, web-designer Moscow, Russia" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwo-Z4-GQc">
-                                <rect key="frame" x="62.5" y="442" width="250" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marina Dudarenko" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4d-2E-ZhA">
-                                <rect key="frame" x="81" y="380" width="213" height="30"/>
+                                <rect key="frame" x="81" y="352" width="213" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlg-e1-PsY">
-                                <rect key="frame" x="260.5" y="292" width="52" height="32"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Edit"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Edit">
-                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="editPictureTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pfz-i5-g6N"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="MI0-IN-JPK">
-                                <rect key="frame" x="133.5" y="157" width="108.5" height="84"/>
+                                <rect key="frame" x="133.5" y="158" width="108.5" height="84"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="70"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXo-OW-ybs">
-                                <rect key="frame" x="62.5" y="550.5" width="250" height="51.5"/>
-                                <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Save" buttonSize="large" titleAlignment="center">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
-                                </buttonConfiguration>
+                                <rect key="frame" x="62.5" y="562" width="250" height="40"/>
+                                <color key="backgroundColor" red="0.90523324553499518" green="0.90523324553499518" blue="0.90523324553499518" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="VVA-ou-rQl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Save"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlg-e1-PsY">
+                                <rect key="frame" x="67.5" y="80" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mlg-e1-PsY" secondAttribute="height" multiplier="1:1" id="8bx-k4-ItV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="editPictureTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pfz-i5-g6N"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UX/UI Designer, web-designer Moscow, Russia" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwo-Z4-GQc">
+                                <rect key="frame" x="67.5" y="414" width="240" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="w4d-2E-ZhA" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="0a0-oV-S3S"/>
-                            <constraint firstItem="w4d-2E-ZhA" firstAttribute="top" secondItem="7bw-e8-PTX" secondAttribute="bottom" constant="56" id="HZ0-Nh-Glt"/>
-                            <constraint firstItem="aXo-OW-ybs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="62.5" id="JgF-MQ-12c"/>
-                            <constraint firstItem="7bw-e8-PTX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="N8g-tZ-m6E"/>
-                            <constraint firstItem="7bw-e8-PTX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="74" id="ONN-zY-nCs"/>
-                            <constraint firstItem="Gwo-Z4-GQc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="UWc-Uo-sqe"/>
-                            <constraint firstItem="MI0-IN-JPK" firstAttribute="centerX" secondItem="7bw-e8-PTX" secondAttribute="centerX" id="gqT-zh-gla"/>
-                            <constraint firstItem="Gwo-Z4-GQc" firstAttribute="top" secondItem="w4d-2E-ZhA" secondAttribute="bottom" constant="32" id="hv4-eP-tWU"/>
-                            <constraint firstItem="mlg-e1-PsY" firstAttribute="trailing" secondItem="7bw-e8-PTX" secondAttribute="trailing" id="kuC-lz-qpq"/>
-                            <constraint firstItem="w4d-2E-ZhA" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ogr-zk-wEO"/>
-                            <constraint firstItem="mlg-e1-PsY" firstAttribute="bottom" secondItem="7bw-e8-PTX" secondAttribute="bottom" id="qhz-aT-lih"/>
-                            <constraint firstItem="MI0-IN-JPK" firstAttribute="centerY" secondItem="7bw-e8-PTX" secondAttribute="centerY" id="sD5-fr-DXl"/>
-                            <constraint firstItem="Gwo-Z4-GQc" firstAttribute="leading" secondItem="7bw-e8-PTX" secondAttribute="leading" id="utX-bO-yr0"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aXo-OW-ybs" secondAttribute="bottom" constant="65" id="z70-w3-xwj"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aXo-OW-ybs" secondAttribute="trailing" constant="62.5" id="zob-PG-zDZ"/>
+                            <constraint firstItem="MI0-IN-JPK" firstAttribute="centerY" secondItem="7bw-e8-PTX" secondAttribute="centerY" id="5oQ-r0-uDf"/>
+                            <constraint firstItem="7bw-e8-PTX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DhG-5L-JSv"/>
+                            <constraint firstItem="Gwo-Z4-GQc" firstAttribute="leading" secondItem="7bw-e8-PTX" secondAttribute="leading" id="DpT-Jt-kCn"/>
+                            <constraint firstItem="mlg-e1-PsY" firstAttribute="trailing" secondItem="7bw-e8-PTX" secondAttribute="trailing" id="Hx5-wP-HxF"/>
+                            <constraint firstItem="w4d-2E-ZhA" firstAttribute="top" secondItem="7bw-e8-PTX" secondAttribute="bottom" constant="32" id="O79-rH-ej1"/>
+                            <constraint firstItem="Gwo-Z4-GQc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PyH-Mv-GPL"/>
+                            <constraint firstItem="Gwo-Z4-GQc" firstAttribute="top" secondItem="w4d-2E-ZhA" secondAttribute="bottom" constant="32" id="ZLb-kQ-Mcd"/>
+                            <constraint firstItem="aXo-OW-ybs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="62.5" id="e5l-iB-FZd"/>
+                            <constraint firstItem="7bw-e8-PTX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="fQT-U2-dvF"/>
+                            <constraint firstItem="mlg-e1-PsY" firstAttribute="width" secondItem="7bw-e8-PTX" secondAttribute="height" multiplier="1:1" id="foa-dr-N3l"/>
+                            <constraint firstItem="MI0-IN-JPK" firstAttribute="centerX" secondItem="7bw-e8-PTX" secondAttribute="centerX" id="jWl-Dz-xA2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aXo-OW-ybs" secondAttribute="bottom" constant="65" id="l0z-ZI-hxa"/>
+                            <constraint firstItem="mlg-e1-PsY" firstAttribute="bottom" secondItem="7bw-e8-PTX" secondAttribute="bottom" id="meb-xB-15y"/>
+                            <constraint firstItem="w4d-2E-ZhA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="s8i-qP-ZIh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aXo-OW-ybs" secondAttribute="trailing" constant="62.5" id="usd-y2-paz"/>
+                            <constraint firstItem="mlg-e1-PsY" firstAttribute="centerX" secondItem="7bw-e8-PTX" secondAttribute="centerX" id="yfj-xk-mHe"/>
                         </constraints>
                     </view>
                     <connections>
@@ -98,9 +100,4 @@
             <point key="canvasLocation" x="-23.199999999999999" y="64.31784107946028"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>
