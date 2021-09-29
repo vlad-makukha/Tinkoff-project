@@ -41,7 +41,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     // Срабатывает после загрузки View
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(profilePictureImageView.frame)
+        print(editButton.frame)
         //Значение свойства frame указанного в Storyboard устройства
         logFor.log(message: "View moved from init to viewDidLoad")
         // Do any additional setup after loading the view.
