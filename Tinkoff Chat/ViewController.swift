@@ -11,8 +11,6 @@ class ViewController: UIViewController {
     
     let logFor = Logger()
 
-    @IBAction func OpenSecondVC(_ sender: UIButton) {
-    }
     // Срабатывает после загрузки View
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,11 +56,5 @@ class ViewController: UIViewController {
 
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "GoToSecondVC" {
-            let dvc = segue.destination as! SecondViewController
-            dvc.someProperties = ""
-        }
-    }
 }
 
