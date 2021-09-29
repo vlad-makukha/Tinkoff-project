@@ -31,7 +31,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="MI0-IN-JPK">
-                                <rect key="frame" x="133.5" y="158" width="108.5" height="84"/>
+                                <rect key="frame" x="133" y="158" width="109" height="84"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="70"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -58,7 +58,7 @@
                                     <action selector="editPictureTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pfz-i5-g6N"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UX/UI Designer, web-designer Moscow, Russia" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwo-Z4-GQc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UX/UI Designer, web-designer Moscow, Russia " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwo-Z4-GQc">
                                 <rect key="frame" x="67.5" y="414" width="240" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -71,6 +71,7 @@
                             <constraint firstItem="MI0-IN-JPK" firstAttribute="centerY" secondItem="7bw-e8-PTX" secondAttribute="centerY" id="5oQ-r0-uDf"/>
                             <constraint firstItem="7bw-e8-PTX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DhG-5L-JSv"/>
                             <constraint firstItem="Gwo-Z4-GQc" firstAttribute="leading" secondItem="7bw-e8-PTX" secondAttribute="leading" id="DpT-Jt-kCn"/>
+                            <constraint firstItem="aXo-OW-ybs" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Gwo-Z4-GQc" secondAttribute="bottom" priority="999" constant="8" symbolic="YES" id="Gyb-iW-OiS"/>
                             <constraint firstItem="mlg-e1-PsY" firstAttribute="trailing" secondItem="7bw-e8-PTX" secondAttribute="trailing" id="Hx5-wP-HxF"/>
                             <constraint firstItem="w4d-2E-ZhA" firstAttribute="top" secondItem="7bw-e8-PTX" secondAttribute="bottom" constant="32" id="O79-rH-ej1"/>
                             <constraint firstItem="Gwo-Z4-GQc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PyH-Mv-GPL"/>

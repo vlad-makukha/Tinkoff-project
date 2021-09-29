@@ -14,14 +14,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 
     var imagePicker = UIImagePickerController()
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        //print(editButton.frame)
-        //Thread 1: Fatal error: Unexpectedly found nil while implicitly unwrapping an Optional value
-        //Проблема возникла потому что frame=nil, так как view и объекты еще не загружены, следовательно frame не определено
-        
-    }
-    
     @IBOutlet weak var profilePictureImageView: UIImageView!{
         didSet{
             profilePictureImageView.layer.cornerRadius = profilePictureImageView.frame.size.width / 2
@@ -39,10 +31,18 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileDescriptionLabel: UILabel!
     
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        //print(editButton.frame)
+        //Thread 1: Fatal error: Unexpectedly found nil while implicitly unwrapping an Optional value
+        //Проблема возникла потому что frame=nil, так как view и объекты еще не загружены, следовательно frame не определено
+    }
+    
     // Срабатывает после загрузки View
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(editButton.frame)
+        print(profilePictureImageView.frame)
+        //Значение свойства frame указанного в Storyboard устройства
         logFor.log(message: "View moved from init to viewDidLoad")
         // Do any additional setup after loading the view.
     }
@@ -51,6 +51,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         print(editButton.frame)
+        //Значение свойства frame для устройства на котором запускается Simulator + 20pt (status bar)
         logFor.log(message: "View moved from viewDidLoad to viewWillAppear")
     }
     
@@ -75,7 +76,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         logFor.log(message: "View moved from viewDidLayoutSubviews to viewDidAppear")
     }
     
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         logFor.log(message: "View moved from viewDidAppear to viewWillDisappear")
@@ -84,16 +84,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
         logFor.log(message: "View moved from viewWillAppear to deinit")
-
     }
+    
     @IBAction func editPictureTapped(_ sender: UIButton) {
         let pictureChangingAlertController = UIAlertController(title: "Изменить изображение", message: nil, preferredStyle: .actionSheet)
         pictureChangingAlertController.addAction(UIAlertAction(title: "Установить из галлереи", style: .default, handler: { _ in self.choosePicture()}))
         pictureChangingAlertController.addAction(UIAlertAction(title: "Сделать фото", style: .default, handler: { _ in self.takePicture()}))
         pictureChangingAlertController.addAction(UIAlertAction.init(title: "Отменить", style: .cancel, handler: nil))
         present(pictureChangingAlertController, animated: true, completion: nil)
-        
-}
+    }
+    
     func choosePicture() {
         let isPhotoLibraryAvailable = UIImagePickerController.isSourceTypeAvailable(.photoLibrary)
         if isPhotoLibraryAvailable {
@@ -133,6 +133,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         errorAlertController.addAction(UIAlertAction(title: "OK", style: .cancel))
         present(errorAlertController, animated: true, completion: nil)
     }
-
+    
 }
 
