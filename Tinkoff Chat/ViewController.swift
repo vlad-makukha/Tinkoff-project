@@ -11,7 +11,12 @@ class ViewController: UIViewController {
     
     let logFor = Logger()
 
-    @IBOutlet weak var profilePictureImageView: UIImageView!
+    @IBOutlet weak var profilePictureImageView: UIImageView!{
+        didSet{
+            profilePictureImageView.layer.cornerRadius = profilePictureImageView.frame.size.height/2
+            profilePictureImageView.layer.masksToBounds = true
+        }
+    }
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var initialsLabel: UILabel!
@@ -21,6 +26,7 @@ class ViewController: UIViewController {
     // Срабатывает после загрузки View
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(editButton.frame)
         logFor.log(message: "View moved from init to viewDidLoad")
         // Do any additional setup after loading the view.
     }
@@ -48,6 +54,7 @@ class ViewController: UIViewController {
     // Срабатывает, когда View появляется на экране
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        print(editButton.frame)
         logFor.log(message: "View moved from viewDidLayoutSubviews to viewDidAppear")
     }
     
@@ -62,6 +69,6 @@ class ViewController: UIViewController {
         logFor.log(message: "View moved from viewWillAppear to deinit")
 
     }
-    
+
 }
 
