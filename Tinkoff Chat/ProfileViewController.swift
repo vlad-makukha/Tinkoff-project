@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ProfileViewController.swift
 //  Tinkoff Chat
 //
 //  Created by Владислав Макуха on 21.09.2021.
@@ -8,12 +8,17 @@
 import UIKit
 import Photos
 
-class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class ProfileViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    // MARK: - Properties
     
     let logFor = Logger()
 
     var imagePicker = UIImagePickerController()
     
+    @IBAction func closeButton(_ sender: Any) {
+        dismiss(animated: true)
+    }
     @IBOutlet weak var profilePictureImageView: UIImageView!{
         didSet{
             profilePictureImageView.layer.cornerRadius = profilePictureImageView.frame.size.width / 2
@@ -30,6 +35,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var initialsLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileDescriptionLabel: UILabel!
+    
+    // MARK: - UIViewController lifecycle methods
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -85,6 +92,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         super.viewDidDisappear(true)
         logFor.log(message: "View moved from viewWillAppear to deinit")
     }
+    
+    // MARK: - Methods
     
     @IBAction func editPictureTapped(_ sender: UIButton) {
         let pictureChangingAlertController = UIAlertController(title: "Изменить изображение", message: nil, preferredStyle: .actionSheet)
