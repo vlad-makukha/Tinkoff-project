@@ -59,4 +59,10 @@ extension ConversationsListViewController: UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionNames[section]
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let conversationVC =  ConversationViewController()
+        conversationVC.title = chats[indexPath.section][indexPath.row].name
+        navigationController?.pushViewController(conversationVC, animated: true)
+    }
 }

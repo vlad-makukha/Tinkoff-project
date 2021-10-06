@@ -34,7 +34,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
                                     <constraint firstItem="Dgl-7l-Oaw" firstAttribute="centerY" secondItem="lqB-sc-qP0" secondAttribute="centerY" id="1q5-U7-lAX"/>
                                     <constraint firstItem="Dgl-7l-Oaw" firstAttribute="centerX" secondItem="lqB-sc-qP0" secondAttribute="centerX" id="Ixc-PS-yMe"/>
@@ -108,12 +108,12 @@
                 <outlet property="pictureCellView" destination="lqB-sc-qP0" id="Nwe-33-vn6"/>
                 <outlet property="profileImageView" destination="wgu-0q-Y03" id="ttH-JG-cXi"/>
             </connections>
-            <point key="canvasLocation" x="115.94202898550725" y="61.607142857142854"/>
+            <point key="canvasLocation" x="119" y="12"/>
         </tableViewCell>
     </objects>
     <resources>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
