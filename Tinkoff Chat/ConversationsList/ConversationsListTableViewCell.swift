@@ -42,7 +42,7 @@ class ConversationsListTableViewCell: UITableViewCell, ConfigurableView {
     override func prepareForReuse() {
         super.prepareForReuse()
         backgroundColor = .clear
-        messageLabel?.font = .systemFont(ofSize: 15)
+        messageLabel?.font = .systemFont(ofSize: 13)
         profileImageView?.image = nil
         initialsCellImageLabel?.isHidden = true
         dateLabel?.isHidden = true
@@ -51,7 +51,7 @@ class ConversationsListTableViewCell: UITableViewCell, ConfigurableView {
     func configure(with model: ConversationCellModel) {
         selectionStyle = .none
         nameLabel.text = model.name
-        messageLabel.font.withSize(15)
+        messageLabel.font.withSize(13)
         
         if let picName = model.picture {
             profileImageView.image = UIImage(named: picName)
@@ -71,11 +71,11 @@ class ConversationsListTableViewCell: UITableViewCell, ConfigurableView {
         }
         else {
             messageLabel.text = "No messages yet"
-            messageLabel.font = UIFont(name: "Arial-ItalicMT", size: 15)
+            messageLabel.font = UIFont(name: "Arial-ItalicMT", size: 13)
         }
         
         if model.hasUnreadMessages {
-            messageLabel.font = .boldSystemFont(ofSize: 15)
+            messageLabel.font = .boldSystemFont(ofSize: 13)
         }
         
         let dateFormatter = DateFormatter()
