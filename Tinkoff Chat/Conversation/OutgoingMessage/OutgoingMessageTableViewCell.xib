@@ -30,7 +30,6 @@
                         <color key="backgroundColor" red="0.69219871749284201" green="1" blue="0.58514937317997018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="0pm-n5-u1J" secondAttribute="bottom" constant="5" id="7x5-ln-cIw"/>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Gky-xv-KL8"/>
                             <constraint firstAttribute="trailing" secondItem="0pm-n5-u1J" secondAttribute="trailing" constant="5" id="H3o-PN-gtA"/>
                             <constraint firstItem="0pm-n5-u1J" firstAttribute="leading" secondItem="Fhx-bp-8vf" secondAttribute="leading" constant="5" id="R6j-yW-Mhu"/>
                             <constraint firstItem="0pm-n5-u1J" firstAttribute="top" secondItem="Fhx-bp-8vf" secondAttribute="top" constant="5" id="tPR-Wk-VJP"/>

@@ -31,7 +31,6 @@
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                         <constraints>
                             <constraint firstItem="CUx-JR-I23" firstAttribute="leading" secondItem="Z37-OW-3Qf" secondAttribute="leading" constant="5" id="98Y-vd-Efs"/>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="f6e-Qm-znc"/>
                             <constraint firstItem="CUx-JR-I23" firstAttribute="top" secondItem="Z37-OW-3Qf" secondAttribute="top" constant="5" id="naW-R4-ojC"/>
                             <constraint firstAttribute="trailing" secondItem="CUx-JR-I23" secondAttribute="trailing" constant="5" id="qtb-k3-mqe"/>
                             <constraint firstAttribute="bottom" secondItem="CUx-JR-I23" secondAttribute="bottom" constant="5" id="wge-v7-G3p"/>
