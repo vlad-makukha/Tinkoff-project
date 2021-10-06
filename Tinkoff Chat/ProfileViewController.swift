@@ -16,9 +16,6 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
 
     var imagePicker = UIImagePickerController()
     
-    @IBAction func closeButton(_ sender: Any) {
-        dismiss(animated: true)
-    }
     @IBOutlet weak var profilePictureImageView: UIImageView!{
         didSet{
             profilePictureImageView.layer.cornerRadius = profilePictureImageView.frame.size.width / 2
@@ -94,6 +91,10 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     }
     
     // MARK: - Methods
+    
+    @IBAction func closeButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func editPictureTapped(_ sender: UIButton) {
         let pictureChangingAlertController = UIAlertController(title: "Изменить изображение", message: nil, preferredStyle: .actionSheet)

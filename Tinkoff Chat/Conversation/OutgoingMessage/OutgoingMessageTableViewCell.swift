@@ -13,7 +13,12 @@ class OutgoingMessageTableViewCell: UITableViewCell {
             let text: String
         }
     
-    @IBOutlet weak var outgoingBubbleView: UIView!
+    @IBOutlet weak var outgoingBubbleView: UIView!{
+        didSet{
+            outgoingBubbleView.layer.cornerRadius = 10
+            outgoingBubbleView.layer.masksToBounds = true
+        }
+    }
     @IBOutlet weak var outgoingTextLabel: UILabel!
     
     override func prepareForReuse() {

@@ -18,25 +18,32 @@
                 <rect key="frame" x="0.0" y="0.0" width="350" height="80"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Z37-OW-3Qf">
-                        <rect key="frame" x="20" y="15" width="262.5" height="50"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z37-OW-3Qf">
+                        <rect key="frame" x="20" y="5" width="153" height="70"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Incoming message" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUx-JR-I23">
-                                <rect key="frame" x="60" y="15" width="143" height="20.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Incoming message" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUx-JR-I23">
+                                <rect key="frame" x="5" y="5" width="143" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
+                        <constraints>
+                            <constraint firstItem="CUx-JR-I23" firstAttribute="leading" secondItem="Z37-OW-3Qf" secondAttribute="leading" constant="5" id="98Y-vd-Efs"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="f6e-Qm-znc"/>
+                            <constraint firstItem="CUx-JR-I23" firstAttribute="top" secondItem="Z37-OW-3Qf" secondAttribute="top" constant="5" id="naW-R4-ojC"/>
+                            <constraint firstAttribute="trailing" secondItem="CUx-JR-I23" secondAttribute="trailing" constant="5" id="qtb-k3-mqe"/>
+                            <constraint firstAttribute="bottom" secondItem="CUx-JR-I23" secondAttribute="bottom" constant="5" id="wge-v7-G3p"/>
+                        </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Z37-OW-3Qf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="8Oh-qO-5xO"/>
-                    <constraint firstAttribute="bottom" secondItem="Z37-OW-3Qf" secondAttribute="bottom" constant="15" id="Usw-Fv-c1c"/>
-                    <constraint firstItem="Z37-OW-3Qf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="sDX-v3-Wrf"/>
-                    <constraint firstItem="Z37-OW-3Qf" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.75" id="taV-JZ-xOY"/>
+                    <constraint firstItem="Z37-OW-3Qf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="8Oh-qO-5xO"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Z37-OW-3Qf" secondAttribute="trailing" constant="67.5" id="Trf-cz-xuR"/>
+                    <constraint firstAttribute="bottom" secondItem="Z37-OW-3Qf" secondAttribute="bottom" constant="5" id="Usw-Fv-c1c"/>
+                    <constraint firstItem="Z37-OW-3Qf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="jvb-Xq-KXW"/>
+                    <constraint firstItem="Z37-OW-3Qf" firstAttribute="width" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.75" id="taV-JZ-xOY"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

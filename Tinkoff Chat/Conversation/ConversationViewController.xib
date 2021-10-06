@@ -28,11 +28,12 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="TAx-EX-RC2" secondAttribute="top" constant="34" id="0F2-M0-0sx"/>
                 <constraint firstItem="TAx-EX-RC2" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="34" id="21a-Is-01v"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TAx-EX-RC2" secondAttribute="trailing" id="26l-Ik-C8G"/>
                 <constraint firstItem="TAx-EX-RC2" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Ply-FP-RgX"/>
+                <constraint firstItem="TAx-EX-RC2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="XLU-7T-glB"/>
                 <constraint firstItem="TAx-EX-RC2" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="Xfr-Yb-ixo"/>
-                <constraint firstItem="TAx-EX-RC2" firstAttribute="width" secondItem="fnl-2z-Ty3" secondAttribute="height" multiplier="207:409" id="uXy-4e-Me4"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="96.428571428571431"/>
         </view>

@@ -10,11 +10,16 @@ import UIKit
 class IncomingMessageTableViewCell: UITableViewCell, ConfigurableView {
     
     struct ConversationCellModel {
-            let text: String
-        }
+        let text: String
+    }
     
     @IBOutlet weak var incomingTextLabel: UILabel!
-    @IBOutlet weak var incomingBubbleView: UIView!
+    @IBOutlet weak var incomingBubbleView: UIView!{
+        didSet{
+            incomingBubbleView.layer.cornerRadius = 10
+            incomingBubbleView.layer.masksToBounds = true
+        }
+    }
     
     override func prepareForReuse() {
         super.prepareForReuse()

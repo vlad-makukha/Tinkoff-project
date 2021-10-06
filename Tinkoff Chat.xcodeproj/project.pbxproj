@@ -88,13 +88,7 @@
 				4D19B03A26FA425400055B63 /* LaunchScreen.storyboard */,
 				4D19B03D26FA425400055B63 /* Info.plist */,
 				4D9C14CC270DFAB7002C2AF8 /* ConversationsList */,
-				4D9C14CD270E1208002C2AF8 /* ConversationViewController.swift */,
-				4D9C14D1270E1371002C2AF8 /* IncomingMessageTableViewCell.swift */,
-				4D9C14D5270E1644002C2AF8 /* ConversationInfo.swift */,
-				4D9C14D2270E1371002C2AF8 /* IncomingMessageTableViewCell.xib */,
-				4D9C14CE270E1208002C2AF8 /* ConversationViewController.xib */,
-				4D9C14D7270E1994002C2AF8 /* OutgoingMessageTableViewCell.swift */,
-				4D9C14D8270E1994002C2AF8 /* OutgoingMessageTableViewCell.xib */,
+				4D9C14DD270E2BC4002C2AF8 /* Conversation */,
 			);
 			path = "Tinkoff Chat";
 			sourceTree = "<group>";
@@ -103,12 +97,50 @@
 			isa = PBXGroup;
 			children = (
 				4D9C14C8270DCFE4002C2AF8 /* ConfigurableViewProtocol.swift */,
-				4D9C14C4270DCF04002C2AF8 /* ConversationsListTableViewCell.swift */,
+				4D9C14DE270E2C3A002C2AF8 /* ConversationsCell */,
 				4D9C14C2270DC8ED002C2AF8 /* ConversationsListViewController.swift */,
-				4D9C14C5270DCF04002C2AF8 /* ConversationsListTableViewCell.xib */,
 				4D9C14CA270DD158002C2AF8 /* ConvesationsListInfo.swift */,
 			);
 			path = ConversationsList;
+			sourceTree = "<group>";
+		};
+		4D9C14DB270E2B4A002C2AF8 /* OutgoingMessage */ = {
+			isa = PBXGroup;
+			children = (
+				4D9C14D7270E1994002C2AF8 /* OutgoingMessageTableViewCell.swift */,
+				4D9C14D8270E1994002C2AF8 /* OutgoingMessageTableViewCell.xib */,
+			);
+			path = OutgoingMessage;
+			sourceTree = "<group>";
+		};
+		4D9C14DC270E2B9A002C2AF8 /* IncomingMessage */ = {
+			isa = PBXGroup;
+			children = (
+				4D9C14D1270E1371002C2AF8 /* IncomingMessageTableViewCell.swift */,
+				4D9C14D2270E1371002C2AF8 /* IncomingMessageTableViewCell.xib */,
+			);
+			path = IncomingMessage;
+			sourceTree = "<group>";
+		};
+		4D9C14DD270E2BC4002C2AF8 /* Conversation */ = {
+			isa = PBXGroup;
+			children = (
+				4D9C14CD270E1208002C2AF8 /* ConversationViewController.swift */,
+				4D9C14DB270E2B4A002C2AF8 /* OutgoingMessage */,
+				4D9C14DC270E2B9A002C2AF8 /* IncomingMessage */,
+				4D9C14D5270E1644002C2AF8 /* ConversationInfo.swift */,
+				4D9C14CE270E1208002C2AF8 /* ConversationViewController.xib */,
+			);
+			path = Conversation;
+			sourceTree = "<group>";
+		};
+		4D9C14DE270E2C3A002C2AF8 /* ConversationsCell */ = {
+			isa = PBXGroup;
+			children = (
+				4D9C14C4270DCF04002C2AF8 /* ConversationsListTableViewCell.swift */,
+				4D9C14C5270DCF04002C2AF8 /* ConversationsListTableViewCell.xib */,
+			);
+			path = ConversationsCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
