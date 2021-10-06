@@ -22,7 +22,11 @@ class ConversationsListTableViewCell: UITableViewCell, ConfigurableView {
     
     @IBOutlet weak var messageLabel: UILabel!
     
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!{
+        didSet{
+            dateLabel.isHidden = true
+        }
+    }
     
     @IBOutlet weak var profileImageView: UIImageView!
     
@@ -30,7 +34,7 @@ class ConversationsListTableViewCell: UITableViewCell, ConfigurableView {
     @IBOutlet weak var initialsCellImageLabel: UILabel!
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
