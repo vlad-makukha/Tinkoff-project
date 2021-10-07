@@ -92,10 +92,6 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     // MARK: - Methods
     
-    @IBAction func closeButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
     @IBAction func editPictureTapped(_ sender: UIButton) {
         let pictureChangingAlertController = UIAlertController(title: "Изменить изображение", message: nil, preferredStyle: .actionSheet)
         pictureChangingAlertController.addAction(UIAlertAction(title: "Установить из галлереи", style: .default, handler: { _ in self.choosePicture()}))

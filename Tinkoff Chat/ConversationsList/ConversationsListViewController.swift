@@ -8,7 +8,7 @@
 import UIKit
 
 class ConversationsListViewController: UIViewController {
-
+    
     // MARK: - Properties
     
     @IBOutlet weak var profileImageButton: UIBarButtonItem!
@@ -34,7 +34,7 @@ class ConversationsListViewController: UIViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
-    
+
 }
 
 // MARK: -  UITableViewDataSource, UITableViewDelegate
@@ -53,8 +53,8 @@ extension ConversationsListViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-            return sectionNames.count
-        }
+        return sectionNames.count
+    }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionNames[section]

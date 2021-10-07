@@ -11,7 +11,6 @@ let yesterday = Date(timeIntervalSinceNow: -24.0 * 3600.0)
 let beforeYesterday = Date(timeIntervalSinceNow: -48.0 * 3600.0)
 
 var chats = [
-    
     [
         ConversationsListTableViewCell.ConversationCellModel(name: "Владимир Путин", message: "Как дела? Лол", date: Date(), isOnline: true, hasUnreadMessages: true, picture: "human0"),
         ConversationsListTableViewCell.ConversationCellModel(name: "Дмитрий Медведев", message: "Привет! Нам нужно обсудить детали по проекту.", date: Date(), isOnline: true, hasUnreadMessages: true, picture: "human1"),
@@ -36,7 +35,6 @@ var chats = [
         ConversationsListTableViewCell.ConversationCellModel(name: "Геннадий Зюганов", message: "Ленин ЖИВ!", date: beforeYesterday, isOnline: false, hasUnreadMessages: false, picture: nil),
         ConversationsListTableViewCell.ConversationCellModel(name: "Алишер Усманов", message: "Да", date: beforeYesterday, isOnline: false, hasUnreadMessages: false, picture: nil)
     ]
-    
 ]
 
 let sectionNames = ["Online", "History"]

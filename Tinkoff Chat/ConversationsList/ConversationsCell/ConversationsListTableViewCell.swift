@@ -19,23 +19,17 @@ class ConversationsListTableViewCell: UITableViewCell, ConfigurableView {
     }
     
     @IBOutlet weak var nameLabel: UILabel!
-    
     @IBOutlet weak var messageLabel: UILabel!
-    
     @IBOutlet weak var dateLabel: UILabel!{
         didSet{
             dateLabel.isHidden = true
         }
     }
-    
     @IBOutlet weak var profileImageView: UIImageView!
-    
     @IBOutlet weak var pictureCellView: UIView!
     @IBOutlet weak var initialsCellImageLabel: UILabel!
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     
     override func layoutSubviews() {
@@ -43,6 +37,7 @@ class ConversationsListTableViewCell: UITableViewCell, ConfigurableView {
         profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
         pictureCellView.layer.cornerRadius = pictureCellView.bounds.width / 2
     }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         backgroundColor = .clear
