@@ -125,6 +125,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tinkoff Chat" id="jsP-P6-YIx">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="107-wX-4U2">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tD0-Rh-Fe3">
+                                <rect key="frame" x="20" y="9.5" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="GearIcon"/>
+                                <connections>
+                                    <action selector="settingsButtonTapped:" destination="D4H-81-SKR" eventType="touchUpInside" id="vaU-m6-eDI"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <action selector="settingsButtonTapped:" destination="D4H-81-SKR" id="mwY-xZ-yFc"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Profile" id="1Cd-uv-Zqt">
                             <connections>
                                 <segue destination="kh2-Wj-fX6" kind="presentation" id="ROM-Of-VVx"/>
@@ -178,6 +192,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="GearIcon" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

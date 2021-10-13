@@ -30,8 +30,13 @@ class ConversationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.backgroundColor = Theme.current.backgroundColor
+        view.backgroundColor = Theme.current.backgroundColor
         // Do any additional setup after loading the view.
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationController?.popViewController(animated: true)
     }
     
 }

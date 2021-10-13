@@ -49,6 +49,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         //Значение свойства frame указанного в Storyboard устройства
         logFor.log(message: "View moved from init to viewDidLoad")
         // Do any additional setup after loading the view.
+        view.backgroundColor = Theme.current.backgroundColor
     }
     
     // Срабатывает перед появлением View на экране

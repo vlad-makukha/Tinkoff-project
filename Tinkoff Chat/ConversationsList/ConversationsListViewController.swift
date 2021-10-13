@@ -27,6 +27,7 @@ class ConversationsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = Theme.current.backgroundColor
         // Do any additional setup after loading the view.
     }
     
@@ -34,12 +35,34 @@ class ConversationsListViewController: UIViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
+    
+    @IBAction func settingsButtonTapped(_ sender: UIButton) {
+        let themesVC = ThemesViewController()
+        themesVC.title = "Settings"
+        
+        themesVC.themeApplied = { [weak self] in
+            self?.tableView.backgroundColor = Theme.current.backgroundColor
+            self?.view.backgroundColor = Theme.current.backgroundColor
+            self?.navigationController?.navigationBar.barStyle = Theme.current.barStyle
+            self?.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Theme.current.textColor]
+            self?.navigationController?.navigationBar.isTranslucent = false
+        }
+        
+        navigationController?.pushViewController(themesVC, animated: true)
+    }
 
 }
 
 // MARK: -  UITableViewDataSource, UITableViewDelegate
 
 extension ConversationsListViewController: UITableViewDelegate, UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        
+        if let header = view as? UITableViewHeaderFooterView {
+            header.contentView.backgroundColor = Theme.current.textBackgroundColor
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chats[section].count
