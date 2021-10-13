@@ -125,18 +125,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tinkoff Chat" id="jsP-P6-YIx">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="107-wX-4U2">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tD0-Rh-Fe3">
-                                <rect key="frame" x="20" y="9.5" width="25" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" image="GearIcon"/>
-                                <connections>
-                                    <action selector="settingsButtonTapped:" destination="D4H-81-SKR" eventType="touchUpInside" id="vaU-m6-eDI"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="GearIcon" id="jww-ua-VED">
                             <connections>
-                                <action selector="settingsButtonTapped:" destination="D4H-81-SKR" id="mwY-xZ-yFc"/>
+                                <action selector="settingsButtonTapped:" destination="D4H-81-SKR" id="j4h-UB-8Km"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Profile" id="1Cd-uv-Zqt">
@@ -159,7 +150,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="k7H-cp-JdY" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hxp-AD-MHr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Hxp-AD-MHr">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

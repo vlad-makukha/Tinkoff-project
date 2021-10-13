@@ -12,26 +12,11 @@ class ConversationViewController: UIViewController {
     private let incomingCellIdentifier = String(describing: IncomingMessageTableViewCell.self)
     private let outgoingCellIdentifier = String(describing: OutgoingMessageTableViewCell.self)
     
-    @IBOutlet weak var tableView: UITableView!{
-        didSet{
-            tableView.register(UINib(nibName: String(describing: IncomingMessageTableViewCell.self), bundle: nil), forCellReuseIdentifier: incomingCellIdentifier)
-            tableView.register(UINib(nibName: String(describing: OutgoingMessageTableViewCell.self), bundle: nil), forCellReuseIdentifier: outgoingCellIdentifier)
-            tableView.dataSource = self
-            tableView.delegate = self
-            tableView.rowHeight = UITableView.automaticDimension
-            tableView.estimatedRowHeight = 44.0
-            tableView.translatesAutoresizingMaskIntoConstraints = false
-            tableView.separatorStyle = .none
-            tableView.tableFooterView = UIView()
-            tableView.sectionHeaderHeight = 0.0;
-            tableView.sectionFooterHeight = 0.0;
-        }
-    }
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = Theme.current.backgroundColor
-        view.backgroundColor = Theme.current.backgroundColor
+        setupTableView()
         // Do any additional setup after loading the view.
     }
     override func viewDidDisappear(_ animated: Bool) {
@@ -39,6 +24,21 @@ class ConversationViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    func setupTableView() {
+        tableView.register(UINib(nibName: String(describing: IncomingMessageTableViewCell.self), bundle: nil), forCellReuseIdentifier: incomingCellIdentifier)
+        tableView.register(UINib(nibName: String(describing: OutgoingMessageTableViewCell.self), bundle: nil), forCellReuseIdentifier: outgoingCellIdentifier)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 44.0
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
+        tableView.tableFooterView = UIView()
+        tableView.sectionHeaderHeight = 0.0;
+        tableView.sectionFooterHeight = 0.0;
+        tableView.backgroundColor = Theme.current.backgroundColor
+        view.backgroundColor = Theme.current.backgroundColor
+    }
 }
 
 extension ConversationViewController: UITableViewDataSource, UITableViewDelegate {

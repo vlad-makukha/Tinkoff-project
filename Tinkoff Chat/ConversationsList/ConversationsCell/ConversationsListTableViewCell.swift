@@ -51,6 +51,7 @@ class ConversationsListTableViewCell: UITableViewCell, ConfigurableView {
         selectionStyle = .none
         nameLabel.text = model.name
         messageLabel.font.withSize(13)
+        backgroundColor = Theme.current.backgroundColor
         
         if let picName = model.picture {
             profileImageView.image = UIImage(named: picName)
@@ -62,7 +63,7 @@ class ConversationsListTableViewCell: UITableViewCell, ConfigurableView {
         }
         
         if model.isOnline {
-            backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+            backgroundColor = Theme.current.onlineUserCellBackgroundColor
         }
         
         if let lastMessage = model.message {
