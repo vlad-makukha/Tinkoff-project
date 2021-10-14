@@ -32,10 +32,10 @@ enum Theme: Int {
     
     var barStyle: UIBarStyle {
         switch self {
-        case .classic, .day:
-            return .default
         case .night:
             return .black
+        case .classic, .day:
+            return .default
         }
     }
     

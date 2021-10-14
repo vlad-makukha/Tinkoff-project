@@ -46,7 +46,7 @@ class ThemesViewController: UIViewController {
     @IBAction func classicThemeButtonTapped(_ sender: UIButton) {
         Theme.classic.apply()
         setupView()
-        //
+        //делегат
         //delegate?.ThemeApplied()
         //замыкание
         themeApplied?()
