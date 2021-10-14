@@ -90,8 +90,8 @@
 				4D19B04326FB269800055B63 /* Logger.swift */,
 				4D19B03326FA424F00055B63 /* ProfileViewController.swift */,
 				4D19B03526FA424F00055B63 /* Main.storyboard */,
-				4D19B03826FA425400055B63 /* Assets.xcassets */,
 				4D19B03A26FA425400055B63 /* LaunchScreen.storyboard */,
+				4D19B03826FA425400055B63 /* Assets.xcassets */,
 				4D19B03D26FA425400055B63 /* Info.plist */,
 				4D9C14CC270DFAB7002C2AF8 /* ConversationsList */,
 				4D9C14DD270E2BC4002C2AF8 /* Conversation */,
@@ -106,8 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				4D9C14C8270DCFE4002C2AF8 /* ConfigurableViewProtocol.swift */,
-				4D9C14DE270E2C3A002C2AF8 /* ConversationsCell */,
 				4D9C14C2270DC8ED002C2AF8 /* ConversationsListViewController.swift */,
+				4D9C14DE270E2C3A002C2AF8 /* ConversationsCell */,
 				4D9C14CA270DD158002C2AF8 /* ConvesationsListInfo.swift */,
 			);
 			path = ConversationsList;
@@ -135,10 +135,10 @@
 			isa = PBXGroup;
 			children = (
 				4D9C14CD270E1208002C2AF8 /* ConversationViewController.swift */,
+				4D9C14CE270E1208002C2AF8 /* ConversationViewController.xib */,
 				4D9C14DB270E2B4A002C2AF8 /* OutgoingMessage */,
 				4D9C14DC270E2B9A002C2AF8 /* IncomingMessage */,
 				4D9C14D5270E1644002C2AF8 /* ConversationInfo.swift */,
-				4D9C14CE270E1208002C2AF8 /* ConversationViewController.xib */,
 			);
 			path = Conversation;
 			sourceTree = "<group>";

@@ -37,17 +37,19 @@ class ConversationsListViewController: UIViewController {
         let themesVC = ThemesViewController()
         themesVC.title = "Settings"
         
-        themesVC.delegate = self
+        //делегат
+        //themesVC.delegate = self
         
-//        themesVC.themeApplied = { [weak self] in
-//            self?.tableView.backgroundColor = Theme.current.backgroundColor
-//            self?.view.backgroundColor = Theme.current.backgroundColor
-//            self?.navigationController?.navigationBar.barStyle = Theme.current.barStyle
-//            self?.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Theme.current.textColor]
-//            self?.navigationController?.navigationBar.isTranslucent = false
-//        }
+        //замыкание
+        themesVC.themeApplied = { [weak self] in
+            self?.tableView.backgroundColor = Theme.current.backgroundColor
+            self?.view.backgroundColor = Theme.current.backgroundColor
+            self?.navigationController?.navigationBar.barStyle = Theme.current.barStyle
+            self?.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Theme.current.textColor]
+            self?.navigationController?.navigationBar.isTranslucent = false
+        }
         
-        navigationController?.pushViewController(themesVC, animated: true)
+        navigationController?.pushViewController(themesVC, animated: false)
     }
     
     
@@ -98,12 +100,13 @@ extension ConversationsListViewController: UITableViewDelegate, UITableViewDataS
     }
 }
 
-extension ConversationsListViewController: ThemePickerDelegate {
-    func ThemeApplied() {
-        self.tableView.backgroundColor = Theme.current.backgroundColor
-        self.view.backgroundColor = Theme.current.backgroundColor
-        self.navigationController?.navigationBar.barStyle = Theme.current.barStyle
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Theme.current.textColor]
-        self.navigationController?.navigationBar.isTranslucent = false
-    }
-}
+//делегат
+//extension ConversationsListViewController: ThemePickerDelegate {
+//    func ThemeApplied() {
+//        self.tableView.backgroundColor = Theme.current.backgroundColor
+//        self.view.backgroundColor = Theme.current.backgroundColor
+//        self.navigationController?.navigationBar.barStyle = Theme.current.barStyle
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Theme.current.textColor]
+//        self.navigationController?.navigationBar.isTranslucent = false
+//    }
+//}

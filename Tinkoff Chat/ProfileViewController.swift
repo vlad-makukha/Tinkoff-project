@@ -22,6 +22,10 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             profilePictureImageView.layer.masksToBounds = true
         }
     }
+    @IBOutlet weak var closeButton: UIButton!
+    @IBAction func closeButtonTapped(_ sender: UIButton) {
+        presentingViewController?.dismiss(animated: true, completion: nil)
+    }
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!{
         didSet{

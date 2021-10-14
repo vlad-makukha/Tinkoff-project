@@ -20,8 +20,10 @@ class ThemesViewController: UIViewController {
     @IBOutlet weak var nightImageView: UIImageView!
     @IBOutlet weak var dayImageView: UIImageView!
     
-    weak var delegate: ThemePickerDelegate?
-    //var themeApplied: (() -> Void)?
+    //делегат
+    //weak var delegate: ThemePickerDelegate?
+    //замыкание
+    var themeApplied: (() -> Void)?
     
     // MARK: - UIViewController lifecycle methods
     
@@ -44,23 +46,29 @@ class ThemesViewController: UIViewController {
     @IBAction func classicThemeButtonTapped(_ sender: UIButton) {
         Theme.classic.apply()
         setupView()
-        delegate?.ThemeApplied()
-        //themeApplied?()
+        //
+        //delegate?.ThemeApplied()
+        //замыкание
+        themeApplied?()
     }
 
     
     @IBAction func dayThemeButtonTapped(_ sender: UIButton) {
         Theme.day.apply()
         setupView()
-        delegate?.ThemeApplied()
-        //themeApplied?()
+        //делегат
+        //delegate?.ThemeApplied()
+        //замыкание
+        themeApplied?()
     }
     
     @IBAction func nightThemeButtonTapped(_ sender: UIButton) {
         Theme.night.apply()
         setupView()
-        delegate?.ThemeApplied()
-        //themeApplied?()
+        //делегат
+        //delegate?.ThemeApplied()
+        //замыкание
+        themeApplied?()
     }
     
     func setupView() {
@@ -91,7 +99,7 @@ class ThemesViewController: UIViewController {
         }
     }
 }
-
-protocol ThemePickerDelegate: AnyObject {
-    func ThemeApplied()
-}
+//делегат
+//protocol ThemePickerDelegate: AnyObject {
+//    func ThemeApplied()
+//}
