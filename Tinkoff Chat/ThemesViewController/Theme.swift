@@ -119,6 +119,7 @@ enum Theme: Int {
     
     
     func apply() {
+        // saving theme value to UserDefaults with GCD
         let queue = DispatchQueue.global(qos: .utility)
         queue.async {
             UserDefaults.standard.set(rawValue, forKey: Keys.selectedTheme)

@@ -28,6 +28,9 @@
 		4D9C14D6270E1644002C2AF8 /* ConversationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C14D5270E1644002C2AF8 /* ConversationInfo.swift */; };
 		4D9C14D9270E1994002C2AF8 /* OutgoingMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C14D7270E1994002C2AF8 /* OutgoingMessageTableViewCell.swift */; };
 		4D9C14DA270E1994002C2AF8 /* OutgoingMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D9C14D8270E1994002C2AF8 /* OutgoingMessageTableViewCell.xib */; };
+		4DE01244271EEC6B0047E9C0 /* GCDDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE01243271EEC6B0047E9C0 /* GCDDataManager.swift */; };
+		4DE01246271EED490047E9C0 /* DataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE01245271EED490047E9C0 /* DataManagerProtocol.swift */; };
+		4DE01248271EEDCF0047E9C0 /* OperationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE01247271EEDCF0047E9C0 /* OperationDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +57,9 @@
 		4D9C14D5270E1644002C2AF8 /* ConversationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationInfo.swift; sourceTree = "<group>"; };
 		4D9C14D7270E1994002C2AF8 /* OutgoingMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessageTableViewCell.swift; sourceTree = "<group>"; };
 		4D9C14D8270E1994002C2AF8 /* OutgoingMessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutgoingMessageTableViewCell.xib; sourceTree = "<group>"; };
+		4DE01243271EEC6B0047E9C0 /* GCDDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDDataManager.swift; sourceTree = "<group>"; };
+		4DE01245271EED490047E9C0 /* DataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerProtocol.swift; sourceTree = "<group>"; };
+		4DE01247271EEDCF0047E9C0 /* OperationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,16 +94,14 @@
 			children = (
 				4D19B02F26FA424F00055B63 /* AppDelegate.swift */,
 				4D19B04326FB269800055B63 /* Logger.swift */,
-				4D19B03326FA424F00055B63 /* ProfileViewController.swift */,
+				4DE0124927206BFE0047E9C0 /* ProfileViewController */,
 				4D19B03526FA424F00055B63 /* Main.storyboard */,
 				4D19B03A26FA425400055B63 /* LaunchScreen.storyboard */,
 				4D19B03826FA425400055B63 /* Assets.xcassets */,
 				4D19B03D26FA425400055B63 /* Info.plist */,
 				4D9C14CC270DFAB7002C2AF8 /* ConversationsList */,
 				4D9C14DD270E2BC4002C2AF8 /* Conversation */,
-				4D939D532716E99E00D232C5 /* ThemesViewController.swift */,
-				4D939D572716E9B500D232C5 /* Theme.swift */,
-				4D939D542716E99E00D232C5 /* ThemesViewController.xib */,
+				4DE01242271EE9D60047E9C0 /* ThemesViewController */,
 			);
 			path = "Tinkoff Chat";
 			sourceTree = "<group>";
@@ -150,6 +154,27 @@
 				4D9C14C5270DCF04002C2AF8 /* ConversationsListTableViewCell.xib */,
 			);
 			path = ConversationsCell;
+			sourceTree = "<group>";
+		};
+		4DE01242271EE9D60047E9C0 /* ThemesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4D939D532716E99E00D232C5 /* ThemesViewController.swift */,
+				4D939D572716E9B500D232C5 /* Theme.swift */,
+				4D939D542716E99E00D232C5 /* ThemesViewController.xib */,
+			);
+			path = ThemesViewController;
+			sourceTree = "<group>";
+		};
+		4DE0124927206BFE0047E9C0 /* ProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4D19B03326FA424F00055B63 /* ProfileViewController.swift */,
+				4DE01243271EEC6B0047E9C0 /* GCDDataManager.swift */,
+				4DE01247271EEDCF0047E9C0 /* OperationDataManager.swift */,
+				4DE01245271EED490047E9C0 /* DataManagerProtocol.swift */,
+			);
+			path = ProfileViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,15 +257,18 @@
 				4D9C14CB270DD158002C2AF8 /* ConvesationsListInfo.swift in Sources */,
 				4D9C14D6270E1644002C2AF8 /* ConversationInfo.swift in Sources */,
 				4D9C14D3270E1371002C2AF8 /* IncomingMessageTableViewCell.swift in Sources */,
+				4DE01244271EEC6B0047E9C0 /* GCDDataManager.swift in Sources */,
 				4D939D582716E9B500D232C5 /* Theme.swift in Sources */,
 				4D9C14D9270E1994002C2AF8 /* OutgoingMessageTableViewCell.swift in Sources */,
 				4D9C14CF270E1208002C2AF8 /* ConversationViewController.swift in Sources */,
 				4D9C14C9270DCFE4002C2AF8 /* ConfigurableViewProtocol.swift in Sources */,
 				4D9C14C6270DCF05002C2AF8 /* ConversationsListTableViewCell.swift in Sources */,
 				4D9C14C3270DC8ED002C2AF8 /* ConversationsListViewController.swift in Sources */,
+				4DE01248271EEDCF0047E9C0 /* OperationDataManager.swift in Sources */,
 				4D19B04426FB269800055B63 /* Logger.swift in Sources */,
 				4D939D552716E99F00D232C5 /* ThemesViewController.swift in Sources */,
 				4D19B03026FA424F00055B63 /* AppDelegate.swift in Sources */,
+				4DE01246271EED490047E9C0 /* DataManagerProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
