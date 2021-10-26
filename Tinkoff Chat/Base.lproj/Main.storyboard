@@ -200,11 +200,18 @@
                                 <action selector="settingsButtonTapped:" destination="D4H-81-SKR" id="j4h-UB-8Km"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Profile" id="1Cd-uv-Zqt">
-                            <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" id="TOP-kV-8Ar"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="GkW-L5-SRa">
+                                <connections>
+                                    <action selector="addChannelTapped:" destination="D4H-81-SKR" id="RMN-Nh-mIi"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Profile" id="1Cd-uv-Zqt">
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="TOP-kV-8Ar"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="profileImageButton" destination="1Cd-uv-Zqt" id="KAT-dT-6rd"/>

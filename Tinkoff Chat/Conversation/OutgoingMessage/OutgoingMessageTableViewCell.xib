@@ -18,21 +18,46 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fhx-bp-8vf">
-                        <rect key="frame" x="176.5" y="5" width="153.5" height="70"/>
+                        <rect key="frame" x="178.5" y="5" width="151.5" height="70"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Outgoing message" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0pm-n5-u1J">
-                                <rect key="frame" x="5" y="5" width="143.5" height="60"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="64T-sv-fMO">
+                                <rect key="frame" x="5" y="5" width="143.5" height="57.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKI-1U-CTb">
+                                        <rect key="frame" x="0.0" y="0.0" width="143.5" height="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="77" translatesAutoresizingMaskIntoConstraints="NO" id="dPg-aH-AY4">
+                                        <rect key="frame" x="0.0" y="37" width="143.5" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Outgoing message" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0pm-n5-u1J">
+                                                <rect key="frame" x="0.0" y="0.0" width="143.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="bKI-1U-CTb" secondAttribute="trailing" id="8T6-c1-NDh"/>
+                                    <constraint firstItem="0pm-n5-u1J" firstAttribute="leading" secondItem="64T-sv-fMO" secondAttribute="leading" id="KTB-6H-uh4"/>
+                                    <constraint firstItem="dPg-aH-AY4" firstAttribute="width" secondItem="64T-sv-fMO" secondAttribute="width" id="San-aA-lwX"/>
+                                    <constraint firstItem="bKI-1U-CTb" firstAttribute="top" secondItem="64T-sv-fMO" secondAttribute="top" id="Vxs-8E-DIm"/>
+                                    <constraint firstItem="bKI-1U-CTb" firstAttribute="leading" secondItem="64T-sv-fMO" secondAttribute="leading" id="e0Y-A0-d8G"/>
+                                    <constraint firstAttribute="trailing" secondItem="0pm-n5-u1J" secondAttribute="trailing" id="lqd-5s-ezA"/>
+                                    <constraint firstAttribute="bottom" secondItem="0pm-n5-u1J" secondAttribute="bottom" id="zjd-RQ-7wu"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.69219871749284201" green="1" blue="0.58514937317997018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="0pm-n5-u1J" secondAttribute="bottom" constant="5" id="7x5-ln-cIw"/>
-                            <constraint firstAttribute="trailing" secondItem="0pm-n5-u1J" secondAttribute="trailing" constant="5" id="H3o-PN-gtA"/>
-                            <constraint firstItem="0pm-n5-u1J" firstAttribute="leading" secondItem="Fhx-bp-8vf" secondAttribute="leading" constant="5" id="R6j-yW-Mhu"/>
-                            <constraint firstItem="0pm-n5-u1J" firstAttribute="top" secondItem="Fhx-bp-8vf" secondAttribute="top" constant="5" id="tPR-Wk-VJP"/>
+                            <constraint firstAttribute="trailing" secondItem="64T-sv-fMO" secondAttribute="trailing" constant="3" id="Qdc-Z1-O5A"/>
+                            <constraint firstItem="64T-sv-fMO" firstAttribute="top" secondItem="Fhx-bp-8vf" secondAttribute="top" constant="5" id="aIb-nv-4EJ"/>
+                            <constraint firstItem="64T-sv-fMO" firstAttribute="leading" secondItem="Fhx-bp-8vf" secondAttribute="leading" constant="5" id="ask-Nz-stp"/>
+                            <constraint firstAttribute="bottom" secondItem="64T-sv-fMO" secondAttribute="bottom" constant="7.5" id="tjy-q9-4Wj"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -46,6 +71,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="dateLabel" destination="bKI-1U-CTb" id="5s6-JF-zdi"/>
                 <outlet property="outgoingBubbleView" destination="Fhx-bp-8vf" id="PTc-cP-Mrj"/>
                 <outlet property="outgoingTextLabel" destination="0pm-n5-u1J" id="sf1-eJ-4tt"/>
             </connections>
