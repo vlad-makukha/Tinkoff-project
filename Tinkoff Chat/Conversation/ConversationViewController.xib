@@ -36,7 +36,7 @@
                     <rect key="frame" x="0.0" y="812" width="414" height="50"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Uyr-VI-BxU">
-                            <rect key="frame" x="50" y="0.0" width="314" height="50"/>
+                            <rect key="frame" x="50" y="10" width="314" height="30"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <color key="textColor" systemColor="labelColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -69,10 +69,10 @@
                         <constraint firstItem="uGD-IO-J8p" firstAttribute="top" secondItem="KE5-aS-1ed" secondAttribute="top" id="Aca-Ap-YV6"/>
                         <constraint firstItem="Uyr-VI-BxU" firstAttribute="trailing" secondItem="rMy-A8-C3S" secondAttribute="leading" id="NGf-QX-taQ"/>
                         <constraint firstItem="rMy-A8-C3S" firstAttribute="top" secondItem="KE5-aS-1ed" secondAttribute="top" id="STH-4c-Zde"/>
-                        <constraint firstAttribute="bottom" secondItem="Uyr-VI-BxU" secondAttribute="bottom" id="Td1-P8-zkV"/>
+                        <constraint firstAttribute="bottom" secondItem="Uyr-VI-BxU" secondAttribute="bottom" constant="10" id="Td1-P8-zkV"/>
                         <constraint firstAttribute="bottom" secondItem="rMy-A8-C3S" secondAttribute="bottom" id="Wn9-Dv-Klu"/>
                         <constraint firstAttribute="bottom" secondItem="uGD-IO-J8p" secondAttribute="bottom" id="dv3-a2-DaJ"/>
-                        <constraint firstItem="Uyr-VI-BxU" firstAttribute="top" secondItem="KE5-aS-1ed" secondAttribute="top" id="hxm-4Q-TrC"/>
+                        <constraint firstItem="Uyr-VI-BxU" firstAttribute="top" secondItem="KE5-aS-1ed" secondAttribute="top" constant="10" id="hxm-4Q-TrC"/>
                         <constraint firstAttribute="trailing" secondItem="rMy-A8-C3S" secondAttribute="trailing" id="sZp-A4-ncG"/>
                         <constraint firstAttribute="height" constant="50" id="vxU-zi-oeJ"/>
                         <constraint firstItem="Uyr-VI-BxU" firstAttribute="leading" secondItem="uGD-IO-J8p" secondAttribute="trailing" id="zar-qZ-xLK"/>
