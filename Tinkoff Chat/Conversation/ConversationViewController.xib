@@ -26,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TAx-EX-RC2">
-                    <rect key="frame" x="0.0" y="10" width="414" height="852"/>
+                    <rect key="frame" x="0.0" y="10" width="414" height="802"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="10000" id="B0k-tY-OqE"/>
@@ -55,6 +55,7 @@
                                 <constraint firstAttribute="width" constant="50" id="NuX-4n-Azr"/>
                                 <constraint firstAttribute="height" constant="50" id="ZWe-vj-D6K"/>
                             </constraints>
+                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal" title="Button" image="paperplane.fill"/>
                             <connections>
@@ -82,9 +83,9 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="KE5-aS-1ed" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0fL-G4-Bgt"/>
-                <constraint firstItem="TAx-EX-RC2" firstAttribute="bottom" secondItem="KE5-aS-1ed" secondAttribute="bottom" id="CSu-Oi-bsp"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TAx-EX-RC2" secondAttribute="trailing" id="WTG-gV-eua"/>
                 <constraint firstItem="TAx-EX-RC2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="XED-ZL-DRS"/>
+                <constraint firstItem="TAx-EX-RC2" firstAttribute="bottom" secondItem="KE5-aS-1ed" secondAttribute="top" id="csL-82-LZo"/>
                 <constraint firstItem="KE5-aS-1ed" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="evV-cb-5rY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="KE5-aS-1ed" secondAttribute="trailing" id="hzG-hw-jUz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="TAx-EX-RC2" secondAttribute="top" constant="34" id="uq3-Ex-idI"/>
