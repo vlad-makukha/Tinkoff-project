@@ -20,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         logFor.log(message: "Application moved from NOT RUNNING to FOREGROUND INACTIVE")
         Theme.current.apply()
         FirebaseApp.configure()
+        CoreDataStack.coreDataStack.didUpdateDataBase = { stack in
+            stack.printDatabaseStatistice()
+        }
+        CoreDataStack.coreDataStack.enableObservers()
         return true
     }
 
