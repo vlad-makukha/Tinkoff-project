@@ -11,6 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConversationViewController" customModule="Tinkoff_Chat" customModuleProvider="target">
             <connections>
+                <outlet property="bottomBarTextView" destination="Uyr-VI-BxU" id="jLp-ZD-D2Q"/>
+                <outlet property="bottomBarView" destination="KE5-aS-1ed" id="Q3s-7O-8ie"/>
+                <outlet property="hideKeyboardImageView" destination="uGD-IO-J8p" id="FBp-fZ-4I2"/>
+                <outlet property="keyboardConstraint" destination="evV-cb-5rY" id="CNn-Wz-yM0"/>
+                <outlet property="sendButton" destination="rMy-A8-C3S" id="BCm-uI-Qmj"/>
                 <outlet property="tableView" destination="TAx-EX-RC2" id="vK9-fn-caa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,24 +26,79 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TAx-EX-RC2">
-                    <rect key="frame" x="0.0" y="10" width="414" height="886"/>
+                    <rect key="frame" x="0.0" y="10" width="414" height="802"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="10000" id="B0k-tY-OqE"/>
+                    </constraints>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KE5-aS-1ed">
+                    <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Uyr-VI-BxU">
+                            <rect key="frame" x="50" y="10" width="314" height="30"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="textColor" systemColor="labelColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="keyboard.chevron.compact.down" translatesAutoresizingMaskIntoConstraints="NO" id="uGD-IO-J8p">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="2Ta-bI-66d"/>
+                                <constraint firstAttribute="height" constant="50" id="7cE-eh-cez"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMy-A8-C3S">
+                            <rect key="frame" x="364" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="NuX-4n-Azr"/>
+                                <constraint firstAttribute="height" constant="50" id="ZWe-vj-D6K"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Button" image="paperplane.fill"/>
+                            <connections>
+                                <action selector="sendButtonTapped:" destination="-1" eventType="touchUpInside" id="ca6-Qa-pEV"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="uGD-IO-J8p" firstAttribute="leading" secondItem="KE5-aS-1ed" secondAttribute="leading" id="7f3-VZ-RkY"/>
+                        <constraint firstItem="uGD-IO-J8p" firstAttribute="top" secondItem="KE5-aS-1ed" secondAttribute="top" id="Aca-Ap-YV6"/>
+                        <constraint firstItem="Uyr-VI-BxU" firstAttribute="trailing" secondItem="rMy-A8-C3S" secondAttribute="leading" id="NGf-QX-taQ"/>
+                        <constraint firstItem="rMy-A8-C3S" firstAttribute="top" secondItem="KE5-aS-1ed" secondAttribute="top" id="STH-4c-Zde"/>
+                        <constraint firstAttribute="bottom" secondItem="Uyr-VI-BxU" secondAttribute="bottom" constant="10" id="Td1-P8-zkV"/>
+                        <constraint firstAttribute="bottom" secondItem="rMy-A8-C3S" secondAttribute="bottom" id="Wn9-Dv-Klu"/>
+                        <constraint firstAttribute="bottom" secondItem="uGD-IO-J8p" secondAttribute="bottom" id="dv3-a2-DaJ"/>
+                        <constraint firstItem="Uyr-VI-BxU" firstAttribute="top" secondItem="KE5-aS-1ed" secondAttribute="top" constant="10" id="hxm-4Q-TrC"/>
+                        <constraint firstAttribute="trailing" secondItem="rMy-A8-C3S" secondAttribute="trailing" id="sZp-A4-ncG"/>
+                        <constraint firstAttribute="height" constant="50" id="vxU-zi-oeJ"/>
+                        <constraint firstItem="Uyr-VI-BxU" firstAttribute="leading" secondItem="uGD-IO-J8p" secondAttribute="trailing" id="zar-qZ-xLK"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="TAx-EX-RC2" secondAttribute="top" constant="34" id="0F2-M0-0sx"/>
-                <constraint firstItem="TAx-EX-RC2" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="34" id="21a-Is-01v"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TAx-EX-RC2" secondAttribute="trailing" id="26l-Ik-C8G"/>
-                <constraint firstItem="TAx-EX-RC2" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Ply-FP-RgX"/>
-                <constraint firstItem="TAx-EX-RC2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="XLU-7T-glB"/>
-                <constraint firstItem="TAx-EX-RC2" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="Xfr-Yb-ixo"/>
+                <constraint firstItem="KE5-aS-1ed" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0fL-G4-Bgt"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TAx-EX-RC2" secondAttribute="trailing" id="WTG-gV-eua"/>
+                <constraint firstItem="TAx-EX-RC2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="XED-ZL-DRS"/>
+                <constraint firstItem="TAx-EX-RC2" firstAttribute="bottom" secondItem="KE5-aS-1ed" secondAttribute="top" id="csL-82-LZo"/>
+                <constraint firstItem="KE5-aS-1ed" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="evV-cb-5rY"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="KE5-aS-1ed" secondAttribute="trailing" id="hzG-hw-jUz"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="TAx-EX-RC2" secondAttribute="top" constant="34" id="uq3-Ex-idI"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="96.428571428571431"/>
         </view>
     </objects>
     <resources>
+        <image name="keyboard.chevron.compact.down" width="24" height="18"/>
+        <image name="paperplane.fill" width="18" height="18"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

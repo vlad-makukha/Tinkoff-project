@@ -8,7 +8,6 @@
 import Foundation
 
 class Logger {
-    
     func log(message: String, function: String = #function) {
         let isDebugEnabled = CommandLine.arguments.contains("--debug")
         if isDebugEnabled {

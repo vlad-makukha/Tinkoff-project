@@ -9,27 +9,33 @@ import UIKit
 
 enum Theme: Int {
     case classic, night, day
-    
+
     private enum Keys {
         static let selectedTheme = "SelectedTheme"
     }
-    
+
     static var current: Theme {
         let storedTheme = UserDefaults.standard.integer(forKey: Keys.selectedTheme)
         return Theme(rawValue: storedTheme) ?? .classic
     }
-    
+
     var mainColor: UIColor {
         switch self {
         case .classic:
-            return UIColor(red: 19.0/255.0, green: 118.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+            return UIColor(red: 19.0 / 255.0,
+                           green: 118.0 / 255.0,
+                           blue: 255.0 / 255.0, alpha: 1.0)
         case .night:
-            return UIColor(red: 255.0/255.0, green: 115.0/255.0, blue: 50.0/255.0, alpha: 1.0)
+            return UIColor(red: 255.0 / 255.0,
+                           green: 115.0 / 255.0,
+                           blue: 50.0 / 255.0, alpha: 1.0)
         case .day:
-            return UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+            return UIColor(red: 0.0 / 255.0,
+                           green: 0.0 / 255.0,
+                           blue: 0.0 / 255.0, alpha: 1.0)
         }
     }
-    
+
     var barStyle: UIBarStyle {
         switch self {
         case .night:
@@ -38,7 +44,7 @@ enum Theme: Int {
             return .default
         }
     }
-    
+
     var backgroundColor: UIColor {
         switch self {
         case .classic, .day:
@@ -47,7 +53,7 @@ enum Theme: Int {
             return UIColor.black
         }
     }
-    
+
     var textColor: UIColor {
         switch self {
         case .classic, .day:
@@ -56,7 +62,7 @@ enum Theme: Int {
             return UIColor.white
         }
     }
-    
+
     var textBackgroundColor: UIColor {
         switch self {
         case .classic, .day:
@@ -65,7 +71,7 @@ enum Theme: Int {
             return UIColor(white: 0.1, alpha: 1.0)
         }
     }
-    
+
     var onlineUserCellBackgroundColor: UIColor {
         switch self {
         case .classic, .day:
@@ -74,7 +80,7 @@ enum Theme: Int {
             return #colorLiteral(red: 0.2375557125, green: 0.225965023, blue: 0.05639447272, alpha: 1)
         }
     }
-    
+
     var incomingMessageCellBackgroundColor: UIColor {
         switch self {
         case .classic:
@@ -85,7 +91,7 @@ enum Theme: Int {
             return #colorLiteral(red: 0.1803921569, green: 0.1803921569, blue: 0.1803921569, alpha: 1)
         }
     }
-    
+
     var outgoingMessageCellBackgroundColor: UIColor {
         switch self {
         case .classic:
@@ -96,7 +102,7 @@ enum Theme: Int {
             return #colorLiteral(red: 0.3607843137, green: 0.3607843137, blue: 0.3607843137, alpha: 1)
         }
     }
-    
+
     var outgoingMessageCellTextColor: UIColor {
         switch self {
         case .classic:
@@ -105,7 +111,7 @@ enum Theme: Int {
             return UIColor.white
         }
     }
-    
+
     var themesVCBackgroundColor: UIColor {
         switch self {
         case .classic:
@@ -116,8 +122,7 @@ enum Theme: Int {
             return .black
         }
     }
-    
-    
+
     func apply() {
         // saving theme value to UserDefaults with GCD
         let queue = DispatchQueue.global(qos: .utility)
@@ -125,19 +130,19 @@ enum Theme: Int {
             UserDefaults.standard.set(rawValue, forKey: Keys.selectedTheme)
         }
         UserDefaults.standard.synchronize()
-        
+
         UIApplication.shared.delegate?.window??.tintColor = mainColor
         UILabel.appearance().textColor = textColor
         UITextField.appearance().textColor = textColor
         UITextView.appearance().textColor = textColor
         UITextView.appearance().backgroundColor = backgroundColor
         UIActivityIndicatorView.appearance().color = mainColor
-        
+
         UINavigationBar.appearance().barStyle = barStyle
         UINavigationBar.appearance().isTranslucent = false
-        
+
         UITableView.appearance().backgroundColor = backgroundColor
         UILabel.appearance(whenContainedInInstancesOf: [UITableViewCell.self]).textColor = textColor
     }
-    
+
 }

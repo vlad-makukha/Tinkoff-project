@@ -191,23 +191,29 @@
                             <constraint firstItem="V1H-kz-qVy" firstAttribute="leading" secondItem="dOd-9t-4UK" secondAttribute="leading" id="1uH-Ef-ifn"/>
                             <constraint firstItem="V1H-kz-qVy" firstAttribute="centerX" secondItem="dOd-9t-4UK" secondAttribute="centerX" id="Gyu-NA-aW1"/>
                             <constraint firstItem="V1H-kz-qVy" firstAttribute="centerY" secondItem="dOd-9t-4UK" secondAttribute="centerY" id="HSj-OR-qGN"/>
-                            <constraint firstItem="V1H-kz-qVy" firstAttribute="top" secondItem="dOd-9t-4UK" secondAttribute="top" id="NPn-VF-sga"/>
+                            <constraint firstItem="V1H-kz-qVy" firstAttribute="top" secondItem="dOd-9t-4UK" secondAttribute="top" id="o6d-8O-Tdl"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Tinkoff Chat" id="jsP-P6-YIx">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="GearIcon" id="jww-ua-VED">
+                    <navigationItem key="navigationItem" title="Tinkoff Chat" id="M6A-8l-mbb">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="GearIcon" id="Y2n-Uf-Qm2">
                             <connections>
-                                <action selector="settingsButtonTapped:" destination="D4H-81-SKR" id="j4h-UB-8Km"/>
+                                <action selector="settingsButtonTapped:" destination="D4H-81-SKR" id="VcP-DN-gMU"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Profile" id="1Cd-uv-Zqt">
-                            <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" id="TOP-kV-8Ar"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="AHs-I6-g5b">
+                                <connections>
+                                    <action selector="addChannelTapped:" destination="D4H-81-SKR" id="gKh-rE-3mH"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Profile" id="qZi-Uv-59k">
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="qcq-Cz-wCE"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="profileImageButton" destination="1Cd-uv-Zqt" id="KAT-dT-6rd"/>
                         <outlet property="tableView" destination="V1H-kz-qVy" id="EFI-Ao-S2m"/>
                     </connections>
                 </viewController>
