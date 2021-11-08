@@ -45,6 +45,17 @@ class ConversationsListViewController: UIViewController {
             snapshot.documentChanges.forEach { change in
                 self.handleDocumentChange(change)
             }
+            // Сохранение в CoreData
+            CoreDataStack.coreDataStack.performSave { [weak self] context in
+                guard let channels = self?.channels else { return }
+                for channel in channels {
+                    let channelEntity = ChannelCD(context: context)
+                    channelEntity.identifier = channel.identifier
+                    channelEntity.name = channel.name
+                    channelEntity.lastMessage = channel.lastMessage
+                    channelEntity.lastActivity = channel.lastActivity
+                }
+            }
         }
 
         tableView.reloadData()
