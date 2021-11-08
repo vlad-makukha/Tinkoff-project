@@ -26,6 +26,13 @@ class OutgoingMessageTableViewCell: UITableViewCell {
         backgroundColor = .clear
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        backgroundColor = Theme.current.backgroundColor
+        outgoingBubbleView.backgroundColor = Theme.current.outgoingMessageCellBackgroundColor
+        outgoingTextLabel.textColor = Theme.current.outgoingMessageCellTextColor
+    }
+    
     func configure(with model: ConversationCellModel) {
         outgoingTextLabel.text = model.text
         selectionStyle = .none

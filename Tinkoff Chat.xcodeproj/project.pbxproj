@@ -13,6 +13,9 @@
 		4D19B03926FA425400055B63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D19B03826FA425400055B63 /* Assets.xcassets */; };
 		4D19B03C26FA425400055B63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D19B03A26FA425400055B63 /* LaunchScreen.storyboard */; };
 		4D19B04426FB269800055B63 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D19B04326FB269800055B63 /* Logger.swift */; };
+		4D939D552716E99F00D232C5 /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D939D532716E99E00D232C5 /* ThemesViewController.swift */; };
+		4D939D562716E99F00D232C5 /* ThemesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D939D542716E99E00D232C5 /* ThemesViewController.xib */; };
+		4D939D582716E9B500D232C5 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D939D572716E9B500D232C5 /* Theme.swift */; };
 		4D9C14C3270DC8ED002C2AF8 /* ConversationsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C14C2270DC8ED002C2AF8 /* ConversationsListViewController.swift */; };
 		4D9C14C6270DCF05002C2AF8 /* ConversationsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C14C4270DCF04002C2AF8 /* ConversationsListTableViewCell.swift */; };
 		4D9C14C7270DCF05002C2AF8 /* ConversationsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D9C14C5270DCF04002C2AF8 /* ConversationsListTableViewCell.xib */; };
@@ -36,6 +39,9 @@
 		4D19B03B26FA425400055B63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D19B03D26FA425400055B63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D19B04326FB269800055B63 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		4D939D532716E99E00D232C5 /* ThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
+		4D939D542716E99E00D232C5 /* ThemesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemesViewController.xib; sourceTree = "<group>"; };
+		4D939D572716E9B500D232C5 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		4D9C14C2270DC8ED002C2AF8 /* ConversationsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsListViewController.swift; sourceTree = "<group>"; };
 		4D9C14C4270DCF04002C2AF8 /* ConversationsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsListTableViewCell.swift; sourceTree = "<group>"; };
 		4D9C14C5270DCF04002C2AF8 /* ConversationsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationsListTableViewCell.xib; sourceTree = "<group>"; };
@@ -84,11 +90,14 @@
 				4D19B04326FB269800055B63 /* Logger.swift */,
 				4D19B03326FA424F00055B63 /* ProfileViewController.swift */,
 				4D19B03526FA424F00055B63 /* Main.storyboard */,
-				4D19B03826FA425400055B63 /* Assets.xcassets */,
 				4D19B03A26FA425400055B63 /* LaunchScreen.storyboard */,
+				4D19B03826FA425400055B63 /* Assets.xcassets */,
 				4D19B03D26FA425400055B63 /* Info.plist */,
 				4D9C14CC270DFAB7002C2AF8 /* ConversationsList */,
 				4D9C14DD270E2BC4002C2AF8 /* Conversation */,
+				4D939D532716E99E00D232C5 /* ThemesViewController.swift */,
+				4D939D572716E9B500D232C5 /* Theme.swift */,
+				4D939D542716E99E00D232C5 /* ThemesViewController.xib */,
 			);
 			path = "Tinkoff Chat";
 			sourceTree = "<group>";
@@ -97,8 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				4D9C14C8270DCFE4002C2AF8 /* ConfigurableViewProtocol.swift */,
-				4D9C14DE270E2C3A002C2AF8 /* ConversationsCell */,
 				4D9C14C2270DC8ED002C2AF8 /* ConversationsListViewController.swift */,
+				4D9C14DE270E2C3A002C2AF8 /* ConversationsCell */,
 				4D9C14CA270DD158002C2AF8 /* ConvesationsListInfo.swift */,
 			);
 			path = ConversationsList;
@@ -126,10 +135,10 @@
 			isa = PBXGroup;
 			children = (
 				4D9C14CD270E1208002C2AF8 /* ConversationViewController.swift */,
+				4D9C14CE270E1208002C2AF8 /* ConversationViewController.xib */,
 				4D9C14DB270E2B4A002C2AF8 /* OutgoingMessage */,
 				4D9C14DC270E2B9A002C2AF8 /* IncomingMessage */,
 				4D9C14D5270E1644002C2AF8 /* ConversationInfo.swift */,
-				4D9C14CE270E1208002C2AF8 /* ConversationViewController.xib */,
 			);
 			path = Conversation;
 			sourceTree = "<group>";
@@ -174,6 +183,7 @@
 				TargetAttributes = {
 					4D19B02B26FA424F00055B63 = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1300;
 					};
 				};
 			};
@@ -206,6 +216,7 @@
 				4D19B03926FA425400055B63 /* Assets.xcassets in Resources */,
 				4D9C14D4270E1371002C2AF8 /* IncomingMessageTableViewCell.xib in Resources */,
 				4D19B03726FA424F00055B63 /* Main.storyboard in Resources */,
+				4D939D562716E99F00D232C5 /* ThemesViewController.xib in Resources */,
 				4D9C14DA270E1994002C2AF8 /* OutgoingMessageTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,12 +232,14 @@
 				4D9C14CB270DD158002C2AF8 /* ConvesationsListInfo.swift in Sources */,
 				4D9C14D6270E1644002C2AF8 /* ConversationInfo.swift in Sources */,
 				4D9C14D3270E1371002C2AF8 /* IncomingMessageTableViewCell.swift in Sources */,
+				4D939D582716E9B500D232C5 /* Theme.swift in Sources */,
 				4D9C14D9270E1994002C2AF8 /* OutgoingMessageTableViewCell.swift in Sources */,
 				4D9C14CF270E1208002C2AF8 /* ConversationViewController.swift in Sources */,
 				4D9C14C9270DCFE4002C2AF8 /* ConfigurableViewProtocol.swift in Sources */,
 				4D9C14C6270DCF05002C2AF8 /* ConversationsListTableViewCell.swift in Sources */,
 				4D9C14C3270DC8ED002C2AF8 /* ConversationsListViewController.swift in Sources */,
 				4D19B04426FB269800055B63 /* Logger.swift in Sources */,
+				4D939D552716E99F00D232C5 /* ThemesViewController.swift in Sources */,
 				4D19B03026FA424F00055B63 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,6 +392,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T3TJ2N5G53;
 				INFOPLIST_FILE = "Tinkoff Chat/Info.plist";
@@ -390,6 +405,9 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.makukha.Tinkoff-Chat";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -400,6 +418,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T3TJ2N5G53;
 				INFOPLIST_FILE = "Tinkoff Chat/Info.plist";
@@ -411,6 +431,8 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.makukha.Tinkoff-Chat";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

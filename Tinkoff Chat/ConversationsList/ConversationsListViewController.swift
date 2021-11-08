@@ -12,14 +12,7 @@ class ConversationsListViewController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet weak var profileImageButton: UIBarButtonItem!
-    @IBOutlet weak var tableView: UITableView!{
-        didSet{
-            tableView.register(UINib(nibName: String(describing: ConversationsListTableViewCell.self), bundle: nil), forCellReuseIdentifier: cellIdentifier)
-            tableView.dataSource = self
-            tableView.delegate = self
-            tableView.tableFooterView = UIView()
-        }
-    }
+    @IBOutlet weak var tableView: UITableView!
     
     private let cellIdentifier = String(describing: ConversationsListTableViewCell.self)
     
@@ -27,12 +20,45 @@ class ConversationsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableView()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+    }
+    
+    @IBAction func settingsButtonTapped(_ sender: UIBarButtonItem) {
+        let themesVC = ThemesViewController()
+        themesVC.title = "Settings"
+        
+        //делегат
+        //themesVC.delegate = self
+        
+        //замыкание
+        themesVC.themeApplied = { [weak self] in
+            self?.tableView.backgroundColor = Theme.current.backgroundColor
+            self?.view.backgroundColor = Theme.current.backgroundColor
+            self?.navigationController?.navigationBar.barStyle = Theme.current.barStyle
+            self?.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Theme.current.textColor]
+            self?.navigationController?.navigationBar.isTranslucent = false
+        }
+        
+        navigationController?.pushViewController(themesVC, animated: false)
+    }
+    
+    
+    func setupTableView() {
+        tableView.register(UINib(nibName: String(describing: ConversationsListTableViewCell.self), bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.tableFooterView = UIView()
+        view.backgroundColor = Theme.current.backgroundColor
     }
 
 }
@@ -40,6 +66,13 @@ class ConversationsListViewController: UIViewController {
 // MARK: -  UITableViewDataSource, UITableViewDelegate
 
 extension ConversationsListViewController: UITableViewDelegate, UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        
+        if let header = view as? UITableViewHeaderFooterView {
+            header.contentView.backgroundColor = Theme.current.textBackgroundColor
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chats[section].count
@@ -66,3 +99,14 @@ extension ConversationsListViewController: UITableViewDelegate, UITableViewDataS
         navigationController?.pushViewController(conversationVC, animated: true)
     }
 }
+
+//делегат
+//extension ConversationsListViewController: ThemePickerDelegate {
+//    func ThemeApplied() {
+//        self.tableView.backgroundColor = Theme.current.backgroundColor
+//        self.view.backgroundColor = Theme.current.backgroundColor
+//        self.navigationController?.navigationBar.barStyle = Theme.current.barStyle
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Theme.current.textColor]
+//        self.navigationController?.navigationBar.isTranslucent = false
+//    }
+//}

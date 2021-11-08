@@ -26,6 +26,12 @@ class IncomingMessageTableViewCell: UITableViewCell, ConfigurableView {
         backgroundColor = .clear
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        backgroundColor = Theme.current.backgroundColor
+        incomingBubbleView.backgroundColor = Theme.current.incomingMessageCellBackgroundColor
+    }
+    
     func configure(with model: ConversationCellModel) {
         incomingTextLabel.text = model.text
         selectionStyle = .none
