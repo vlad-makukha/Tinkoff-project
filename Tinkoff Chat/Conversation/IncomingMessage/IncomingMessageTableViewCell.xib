@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="IncomingMessageTableViewCell" customModule="Tinkoff_Chat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="350" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="350" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z37-OW-3Qf">
+                        <rect key="frame" x="20" y="5" width="153" height="70"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Incoming message" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUx-JR-I23">
+                                <rect key="frame" x="5" y="5" width="143" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                        <constraints>
+                            <constraint firstItem="CUx-JR-I23" firstAttribute="leading" secondItem="Z37-OW-3Qf" secondAttribute="leading" constant="5" id="98Y-vd-Efs"/>
+                            <constraint firstItem="CUx-JR-I23" firstAttribute="top" secondItem="Z37-OW-3Qf" secondAttribute="top" constant="5" id="naW-R4-ojC"/>
+                            <constraint firstAttribute="trailing" secondItem="CUx-JR-I23" secondAttribute="trailing" constant="5" id="qtb-k3-mqe"/>
+                            <constraint firstAttribute="bottom" secondItem="CUx-JR-I23" secondAttribute="bottom" constant="5" id="wge-v7-G3p"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Z37-OW-3Qf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="8Oh-qO-5xO"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Z37-OW-3Qf" secondAttribute="trailing" constant="67.5" id="Trf-cz-xuR"/>
+                    <constraint firstAttribute="bottom" secondItem="Z37-OW-3Qf" secondAttribute="bottom" constant="5" id="Usw-Fv-c1c"/>
+                    <constraint firstItem="Z37-OW-3Qf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="jvb-Xq-KXW"/>
+                    <constraint firstItem="Z37-OW-3Qf" firstAttribute="width" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.75" id="taV-JZ-xOY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="incomingBubbleView" destination="Z37-OW-3Qf" id="qug-Eb-9BP"/>
+                <outlet property="incomingTextLabel" destination="CUx-JR-I23" id="yqZ-AH-woX"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="96.428571428571431"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
