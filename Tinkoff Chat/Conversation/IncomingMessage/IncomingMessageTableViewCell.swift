@@ -30,13 +30,13 @@ class IncomingMessageTableViewCell: UITableViewCell, ConfigurableView {
         incomingBubbleView.backgroundColor = Theme.current.incomingMessageCellBackgroundColor
     }
 
-    func configure(with model: Message) {
+    func configure(with model: MessageCD) {
         selectionStyle = .none
         incomingTextLabel.text = model.content
         nameLabel.text = model.senderName
 
         let dateFormatter = DateFormatter()
-        let date = model.created
+        guard let date = model.created else { return }
         if Calendar.current.isDateInToday(date) {
             dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm")
         } else {

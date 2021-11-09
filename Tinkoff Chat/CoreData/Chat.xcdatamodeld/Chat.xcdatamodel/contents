@@ -5,7 +5,7 @@
         <attribute name="lastActivity" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="lastMessage" optional="YES" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
-        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MessageCD" inverseName="channel" inverseEntity="MessageCD"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MessageCD" inverseName="channel" inverseEntity="MessageCD"/>
     </entity>
     <entity name="MessageCD" representedClassName="MessageCD" syncable="YES" codeGenerationType="class">
         <attribute name="content" attributeType="String"/>
@@ -16,7 +16,7 @@
         <relationship name="channel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChannelCD" inverseName="messages" inverseEntity="ChannelCD"/>
     </entity>
     <elements>
-        <element name="ChannelCD" positionX="-339.059814453125" positionY="-108.6256103515625" width="128" height="118"/>
+        <element name="ChannelCD" positionX="-339.059814453125" positionY="-108.6256103515625" width="128" height="104"/>
         <element name="MessageCD" positionX="-54" positionY="18" width="128" height="133"/>
     </elements>
 </model>

@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 class CoreDataStack {
-    static let coreDataStack = CoreDataStack()
+    static let shared = CoreDataStack()
     var didUpdateDataBase: ((CoreDataStack) -> Void)?
     
     private var storeUrl: URL = {
@@ -81,8 +81,15 @@ class CoreDataStack {
         }
     }
     
-    private func performSave(in context: NSManagedObjectContext) throws {
-        try context.save()
+    func performSave(in context: NSManagedObjectContext) throws {
+        context.performAndWait {
+            do {
+                try context.obtainPermanentIDs(for: Array(context.insertedObjects))
+                try context.save()
+            } catch {
+                assertionFailure(error.localizedDescription)
+            }
+        }
         if let parent = context.parent { try performSave(in: parent) }
     }
     
@@ -102,7 +109,7 @@ class CoreDataStack {
         
         if let inserts = userInfo[NSInsertedObjectsKey] as? Set<NSManagedObject>,
             inserts.count > 0 {
-            print("Добавлено / перезаписано объектов:", inserts.count)
+            print("Добавлено объектов:", inserts.count)
         }
         
         if let updates = userInfo[NSUpdatedObjectsKey] as? Set<NSManagedObject>,

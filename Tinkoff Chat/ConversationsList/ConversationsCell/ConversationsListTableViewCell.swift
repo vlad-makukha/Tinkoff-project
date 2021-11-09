@@ -20,7 +20,7 @@ class ConversationsListTableViewCell: UITableViewCell, ConfigurableView {
         dateLabel?.isHidden = true
     }
 
-    func configure(with model: Channel) {
+    func configure(with model: ChannelCD) {
         selectionStyle = .none
         nameLabel.text = model.name
         messageLabel.font.withSize(13)

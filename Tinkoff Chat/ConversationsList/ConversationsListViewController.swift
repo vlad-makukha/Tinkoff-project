@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import CoreData
 
 class ConversationsListViewController: UIViewController {
 
@@ -19,6 +20,18 @@ class ConversationsListViewController: UIViewController {
     private lazy var reference = dataBase.collection("channels")
     private var channels = [Channel]()
     private var channelListener: ListenerRegistration?
+    private lazy var fetchedResultsController: NSFetchedResultsController<ChannelCD> = {
+        let fetchRequest: NSFetchRequest<ChannelCD> = ChannelCD.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                                  managedObjectContext: CoreDataStack.shared.mainContext,
+                                                                  sectionNameKeyPath: nil,
+                                                                  cacheName: nil)
+        try? fetchedResultsController.performFetch()
+        fetchedResultsController.delegate = self
+        return fetchedResultsController
+    }()
 
     private let cellIdentifier = String(describing: ConversationsListTableViewCell.self)
 
@@ -46,19 +59,31 @@ class ConversationsListViewController: UIViewController {
                 self.handleDocumentChange(change)
             }
             // Сохранение в CoreData
-            CoreDataStack.coreDataStack.performSave { [weak self] context in
+            CoreDataStack.shared.performSave { [weak self] context in
+                let fetchRequest: NSFetchRequest<ChannelCD> = ChannelCD.fetchRequest()
+                let channelsInCD = try? CoreDataStack.shared.mainContext.fetch(fetchRequest)
                 guard let channels = self?.channels else { return }
                 for channel in channels {
-                    let channelEntity = ChannelCD(context: context)
-                    channelEntity.identifier = channel.identifier
-                    channelEntity.name = channel.name
-                    channelEntity.lastMessage = channel.lastMessage
-                    channelEntity.lastActivity = channel.lastActivity
+                    if let savedChannel = channelsInCD?.first(where: { $0.identifier == channel.identifier }) {
+                        if savedChannel.name != channel.name {
+                            savedChannel.name = channel.name
+                        }
+                        if savedChannel.lastMessage != channel.lastMessage {
+                            savedChannel.lastMessage = channel.lastMessage
+                        }
+                        if savedChannel.lastActivity != channel.lastActivity {
+                            savedChannel.lastActivity = channel.lastActivity
+                        }
+                    } else {
+                        let channelEntity = ChannelCD(context: context)
+                        channelEntity.identifier = channel.identifier
+                        channelEntity.name = channel.name
+                        channelEntity.lastMessage = channel.lastMessage
+                        channelEntity.lastActivity = channel.lastActivity
+                    }
                 }
             }
         }
-
-        tableView.reloadData()
     }
 
     // MARK: - Methods
@@ -137,27 +162,31 @@ class ConversationsListViewController: UIViewController {
         }
         channels.append(channel)
         channels.sort()
-
-        guard let index = channels.firstIndex(of: channel) else {
-            return
-        }
-        tableView.insertRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        
+        //        guard let index = channels.firstIndex(of: channel) else {
+        //            return
+        //        }
+        //        tableView.insertRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
     }
-
+    
     private func updateChannelInTable(_ channel: Channel) {
         guard let index = channels.firstIndex(of: channel) else {
             return
         }
         channels[index] = channel
-        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        //        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
     }
-
+    
     private func removeChannelFromTable(_ channel: Channel) {
         guard let index = channels.firstIndex(of: channel) else {
             return
         }
         channels.remove(at: index)
-        tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        let fetchRequest: NSFetchRequest<ChannelCD> = ChannelCD.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "identifier == %@", channel.identifier)
+        guard let channelCR = try? CoreDataStack.shared.mainContext.fetch(fetchRequest).first else { return }
+        CoreDataStack.shared.mainContext.delete(channelCR)
+        try? CoreDataStack.shared.performSave(in: CoreDataStack.shared.mainContext)
     }
 
     // MARK: Alert
@@ -171,7 +200,9 @@ class ConversationsListViewController: UIViewController {
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
 
-extension ConversationsListViewController: UITableViewDelegate, UITableViewDataSource {
+extension ConversationsListViewController: UITableViewDelegate,
+                                           UITableViewDataSource,
+                                           NSFetchedResultsControllerDelegate {
 
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
 
@@ -181,14 +212,15 @@ extension ConversationsListViewController: UITableViewDelegate, UITableViewDataS
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return channels.count
+        guard let sections = fetchedResultsController.sections else { return 0 }
+        return sections[section].numberOfObjects
+        //        return channels.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier,
-                                                       for: indexPath)
-                as? ConversationsListTableViewCell else { return UITableViewCell() }
-        let channel = channels[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ConversationsListTableViewCell else { return UITableViewCell() }
+        let channel = fetchedResultsController.object(at: indexPath)
+        //        let channel = channels[indexPath.row]
         cell.configure(with: channel)
         return cell
     }
@@ -198,17 +230,57 @@ extension ConversationsListViewController: UITableViewDelegate, UITableViewDataS
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let channel = channels[indexPath.row]
+        let channel = fetchedResultsController.object(at: indexPath)
+        //        let channel = channels[indexPath.row]
         let conversationVC = ConversationViewController(channel: channel)
         navigationController?.pushViewController(conversationVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, completion in
-            let channel = self.channels[indexPath.row]
-            self.reference.document(channel.identifier).delete()
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
+            let channel = self.fetchedResultsController.object(at: indexPath)
+            //            let channel = self.channels[indexPath.row]
+            self.reference.document(channel.identifier ?? "").delete()
+            CoreDataStack.shared.mainContext.delete(channel)
+            try? CoreDataStack.shared.performSave(in: CoreDataStack.shared.mainContext) // saveContext???
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChange anObject: Any,
+                    at indexPath: IndexPath?,
+                    for type: NSFetchedResultsChangeType,
+                    newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            if let newIndexPath = newIndexPath {
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+        case .move:
+            if let newIndexPath = newIndexPath, let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+        case .update:
+            if let indexPath = indexPath {
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+        case .delete:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        @unknown default:
+            fatalError()
+        }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
     }
 }
 

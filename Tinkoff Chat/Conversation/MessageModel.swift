@@ -14,13 +14,13 @@ struct Message {
     let created: Date
     let senderId: String
     let senderName: String
-    let myId = UIDevice.current.identifierForVendor?.uuidString
+    static let myId = UIDevice.current.identifierForVendor?.uuidString
     let identifier: String?
 
     init(content: String) {
         self.content = content
         created = Date()
-        senderId = myId ?? "senderId"
+        senderId = Message.myId ?? "senderId"
         senderName = "My Name" // Здесь будет браться имя из профайла. Пока не реализовано, тк в ТЗ нет
         identifier = nil
     }
@@ -68,11 +68,11 @@ extension Message {
 }
 
 extension Message: Comparable {
-
+    
     static func == (lhs: Message, rhs: Message) -> Bool {
         return lhs.identifier == rhs.identifier
     }
-
+    
     static func < (lhs: Message, rhs: Message) -> Bool {
         return lhs.created < rhs.created
     }

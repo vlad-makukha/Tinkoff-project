@@ -34,12 +34,12 @@ class OutgoingMessageTableViewCell: UITableViewCell {
         outgoingTextLabel.textColor = Theme.current.outgoingMessageCellTextColor
     }
 
-    func configure(with model: Message) {
+    func configure(with model: MessageCD) {
         outgoingTextLabel.text = model.content
         selectionStyle = .none
 
         let dateFormatter = DateFormatter()
-        let date = model.created
+        guard let date = model.created else { return }
         if Calendar.current.isDateInToday(date) {
             dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm")
         } else {
