@@ -202,6 +202,14 @@ extension ConversationsListViewController: UITableViewDelegate, UITableViewDataS
         let conversationVC = ConversationViewController(channel: channel)
         navigationController?.pushViewController(conversationVC, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, completion in
+            let channel = self.channels[indexPath.row]
+            self.reference.document(channel.identifier).delete()
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
 }
 
 // делегат
