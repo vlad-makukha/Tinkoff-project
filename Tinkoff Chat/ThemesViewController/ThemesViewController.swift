@@ -16,14 +16,14 @@ class ThemesViewController: UIViewController {
     @IBOutlet weak var classicImageView: UIImageView!
     @IBOutlet weak var nightImageView: UIImageView!
     @IBOutlet weak var dayImageView: UIImageView!
-    // делегат
+    
+    // MARK: - Delegate
     // weak var delegate: ThemePickerDelegate?
-    // замыкание
+    
+    // MARK: - Closure
     var themeApplied: (() -> Void)?
+    
     // MARK: - UIViewController lifecycle methods
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setupView()
@@ -32,33 +32,34 @@ class ThemesViewController: UIViewController {
         super.viewDidDisappear(animated)
         navigationController?.popViewController(animated: true)
     }
+    
     // MARK: - Methods
     @IBAction func classicThemeButtonTapped(_ sender: UIButton) {
         Theme.classic.apply()
         setupView()
-        // делегат
+        // MARK: - Delegate
         // delegate?.ThemeApplied()
-        // замыкание
+        // MARK: - Closure
         themeApplied?()
     }
 
     @IBAction func dayThemeButtonTapped(_ sender: UIButton) {
         Theme.day.apply()
         setupView()
-        // делегат
+        // MARK: - Delegate
         // delegate?.ThemeApplied()
-        // замыкание
+        // MARK: - Closure
         themeApplied?()
     }
     @IBAction func nightThemeButtonTapped(_ sender: UIButton) {
         Theme.night.apply()
         setupView()
-        // делегат
+        // MARK: - Delegate
         // delegate?.ThemeApplied()
-        // замыкание
+        // MARK: - Closure
         themeApplied?()
     }
-    func setupView() {
+    private func setupView() {
         view.backgroundColor = Theme.current.themesVCBackgroundColor
         nightImageView.layer.cornerRadius = classicView.bounds.height / 6
         nightImageView.clipsToBounds = true
@@ -86,7 +87,7 @@ class ThemesViewController: UIViewController {
         }
     }
 }
-// делегат
+// MARK: - Delegate
 // protocol ThemePickerDelegate: AnyObject {
 //    func ThemeApplied()
 // }

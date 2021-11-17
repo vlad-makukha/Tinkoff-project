@@ -9,12 +9,8 @@ import Foundation
 import UIKit
 
 class GCDDataManager: DataManager {
-
-    class func saveTextDataToFiles(profileVC: ProfileViewController,
-                                   name: String, description: String,
-                                   isProfileNameChanged: Bool,
-                                   isProfileDescriptionChanged: Bool) {
-        profileVC.activityIndicator.startAnimating()
+    
+    class func saveTextDataToFiles(name: String, description: String, isNameChanged: Bool, isDescriptionChanged: Bool) {
         let queue = DispatchQueue.global(qos: .userInitiated)
         queue.async {
             let nameFile = "nameFile.txt"
@@ -23,25 +19,19 @@ class GCDDataManager: DataManager {
                 let nameFileURL = dir.appendingPathComponent(nameFile)
                 let descriptionFileURL = dir.appendingPathComponent(descriptionFile)
                 do {
-                    if isProfileNameChanged {
+                    if isNameChanged {
                         try name.write(to: nameFileURL, atomically: false, encoding: .utf8)
                     }
-                    if isProfileDescriptionChanged {
+                    if isDescriptionChanged {
                         try description.write(to: descriptionFileURL, atomically: false, encoding: .utf8)
                     }
-                    DispatchQueue.main.async {
-                        profileVC.showDataSaveAlertController()
-                        profileVC.activityIndicator.stopAnimating()
-                    }
                 } catch {
-                    DispatchQueue.main.async {
-                        profileVC.showGCDDataSaveErrorAlertController()
-                    }
+                    print(error.localizedDescription)
                 }
             }
         }
     }
-
+    
     class func savePictureToFile(picture: UIImage) {
         let queue = DispatchQueue.global(qos: .userInitiated)
         queue.async {
@@ -56,31 +46,31 @@ class GCDDataManager: DataManager {
             }
         }
     }
-
+    
     class func loadTextDataFromFiles() -> (name: String?, description: String?) {
-        guard let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-        else { return (nil, nil) }
+        guard let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return (nil, nil) }
         let nameFile = "nameFile.txt"
         let descriptionFile = "descriptionFile.txt"
         let nameFileURL = dir.appendingPathComponent(nameFile)
         let descriptionFileURL = dir.appendingPathComponent(descriptionFile)
-
+        
         if let name = try? String(contentsOf: nameFileURL, encoding: .utf8),
-           let description = try? String(contentsOf: descriptionFileURL, encoding: .utf8) {
+            let description = try? String(contentsOf: descriptionFileURL, encoding: .utf8) {
             return (name, description)
         }
         return (nil, nil)
     }
-
+    
     class func loadPictureFromFile() -> UIImage? {
         guard let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
         let pictureFile = "pictureFile"
         let pictureFileURL = dir.appendingPathComponent(pictureFile)
-
+        
         if let pictureData = try? Data(contentsOf: pictureFileURL),
-           let picture = UIImage(data: pictureData) {
+            let picture = UIImage(data: pictureData) {
             return picture
         }
         return nil
     }
+    
 }

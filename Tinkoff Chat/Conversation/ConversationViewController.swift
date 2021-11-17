@@ -18,7 +18,6 @@ class ConversationViewController: UIViewController {
     @IBOutlet weak var hideKeyboardImageView: UIImageView!
     @IBOutlet weak var bottomBarTextView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
-    @IBOutlet weak var tableViewHeighConstraint: NSLayoutConstraint!
     @IBOutlet weak var keyboardConstraint: NSLayoutConstraint!
 
     private let channel: ChannelCD
@@ -29,7 +28,6 @@ class ConversationViewController: UIViewController {
     private let storage = Storage.storage().reference()
     private var messages: [Message] = []
     private var messageListener: ListenerRegistration?
-    private var top: CGFloat = 0.0
     private var lastIndexPath: IndexPath? {
         let section = numberOfSections(in: tableView) - 1
         if section >= 0 {
@@ -129,11 +127,6 @@ class ConversationViewController: UIViewController {
         bottomBarTextView.layer.cornerRadius = bottomBarTextView.frame.height / 5
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        top = view.frame.origin.y
-    }
-
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         navigationController?.popViewController(animated: true)
@@ -141,7 +134,7 @@ class ConversationViewController: UIViewController {
 
     // MARK: - Methods
 
-    func setupTableView() {
+    private func setupTableView() {
         tableView.register(UINib(nibName: String(describing: IncomingMessageTableViewCell.self),
                                  bundle: nil),
                            forCellReuseIdentifier: incomingCellIdentifier)
@@ -160,8 +153,14 @@ class ConversationViewController: UIViewController {
         tableView.backgroundColor = Theme.current.backgroundColor
         view.backgroundColor = Theme.current.backgroundColor
     }
+    
+    private func scrollToBottom() {
+        if let lastIndexPath = self.lastIndexPath {
+            self.tableView.scrollToRow(at: lastIndexPath, at: .top, animated: true)
+        }
+    }
 
-    // MARK: Firebase interaction
+    // MARK: - Firebase interaction
 
     private func sendMessage(_ message: Message) {
         reference.addDocument(data: message.representation) { error in
@@ -169,11 +168,9 @@ class ConversationViewController: UIViewController {
                 print("Error sending message: \(error.localizedDescription)")
                 return
             }
-            if let lastIndexPath = self.lastIndexPath {
-                self.tableView.scrollToRow(at: lastIndexPath, at: .top, animated: true)
+            self.scrollToBottom()
             }
         }
-    }
 
     private func insertNewMessage(_ message: Message) {
         guard !messages.contains(message) else {
@@ -181,7 +178,6 @@ class ConversationViewController: UIViewController {
         }
         messages.append(message)
         messages.sort()
-//        tableView.reloadData()
     }
 
     private func handleDocumentChange(_ change: DocumentChange) {
@@ -193,10 +189,8 @@ class ConversationViewController: UIViewController {
         case .added:
             insertNewMessage(message)
             DispatchQueue.main.async {
-                if let lastIndexPath = self.lastIndexPath {
-                    self.tableView.scrollToRow(at: lastIndexPath, at: .top, animated: false)
-                }
-        }
+                self.scrollToBottom()
+            }
         default:
             break
         }
@@ -204,15 +198,14 @@ class ConversationViewController: UIViewController {
 
     @IBAction func sendButtonTapped(_ sender: UIButton) {
         guard let text = bottomBarTextView.text, text != ""
-        else { print("Sending error")
-            return }
+        else { return }
 
         let message = Message(content: text)
         sendMessage(message)
         bottomBarTextView.text = ""
     }
 
-    // MARK: Work with keyboard
+    // MARK: - Work with keyboard
 
     func addNotificationKeyboardObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow),
@@ -240,9 +233,7 @@ class ConversationViewController: UIViewController {
                     self.view.layoutIfNeeded()
                 })
             }
-            if let lastIndexPath = self.lastIndexPath {
-                self.tableView.scrollToRow(at: lastIndexPath, at: .top, animated: true)
-            }
+            self.scrollToBottom()
             self.hideKeyboardImageView.isHidden = false
         }
     }

@@ -9,12 +9,8 @@ import Foundation
 import UIKit
 
 protocol DataManager {
-
-    static func saveTextDataToFiles(profileVC: ProfileViewController,
-                                    name: String,
-                                    description: String,
-                                    isProfileNameChanged: Bool,
-                                    isProfileDescriptionChanged: Bool)
+    
+    static func saveTextDataToFiles(name: String, description: String, isNameChanged: Bool, isDescriptionChanged: Bool)
     static func savePictureToFile(picture: UIImage)
     static func loadTextDataFromFiles() -> (name: String?, description: String?)
     static func loadPictureFromFile() -> UIImage?

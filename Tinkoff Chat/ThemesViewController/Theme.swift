@@ -44,6 +44,15 @@ enum Theme: Int {
             return .default
         }
     }
+    
+    var alertStyle: UIBlurEffect.Style {
+        switch self {
+        case .classic, .day:
+            return .light
+        case .night:
+            return .dark
+        }
+    }
 
     var backgroundColor: UIColor {
         switch self {
@@ -136,13 +145,15 @@ enum Theme: Int {
         UITextField.appearance().textColor = textColor
         UITextView.appearance().textColor = textColor
         UITextView.appearance().backgroundColor = backgroundColor
-        UIActivityIndicatorView.appearance().color = mainColor
+        //        UIActivityIndicatorView.appearance().color = mainColor
 
         UINavigationBar.appearance().barStyle = barStyle
         UINavigationBar.appearance().isTranslucent = false
-
         UITableView.appearance().backgroundColor = backgroundColor
         UILabel.appearance(whenContainedInInstancesOf: [UITableViewCell.self]).textColor = textColor
+        UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = mainColor
+        UIVisualEffectView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).effect = UIBlurEffect(style: alertStyle)
+        UILabel.appearance(whenContainedInInstancesOf: [UIAlertController.self]).textColor = textColor
     }
 
 }
