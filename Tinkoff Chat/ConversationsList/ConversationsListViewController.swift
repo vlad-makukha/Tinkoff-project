@@ -59,30 +59,7 @@ class ConversationsListViewController: UIViewController {
                 self.handleDocumentChange(change)
             }
             // Сохранение в CoreData
-            CoreDataStack.shared.performSave { [weak self] context in
-                let fetchRequest: NSFetchRequest<ChannelCD> = ChannelCD.fetchRequest()
-                let channelsInCD = try? CoreDataStack.shared.mainContext.fetch(fetchRequest)
-                guard let channels = self?.channels else { return }
-                for channel in channels {
-                    if let savedChannel = channelsInCD?.first(where: { $0.identifier == channel.identifier }) {
-                        if savedChannel.name != channel.name {
-                            savedChannel.name = channel.name
-                        }
-                        if savedChannel.lastMessage != channel.lastMessage {
-                            savedChannel.lastMessage = channel.lastMessage
-                        }
-                        if savedChannel.lastActivity != channel.lastActivity {
-                            savedChannel.lastActivity = channel.lastActivity
-                        }
-                    } else {
-                        let channelEntity = ChannelCD(context: context)
-                        channelEntity.identifier = channel.identifier
-                        channelEntity.name = channel.name
-                        channelEntity.lastMessage = channel.lastMessage
-                        channelEntity.lastActivity = channel.lastActivity
-                    }
-                }
-            }
+            CoreDataManager.shared.saveChannels(channels: self.channels)
         }
     }
 
@@ -117,7 +94,7 @@ class ConversationsListViewController: UIViewController {
         view.backgroundColor = Theme.current.backgroundColor
     }
 
-    // MARK: Firebase interaction
+    // MARK: - Firebase interaction
 
     @IBAction func addChannelTapped(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: "Создание нового канала",
@@ -185,8 +162,7 @@ class ConversationsListViewController: UIViewController {
         let fetchRequest: NSFetchRequest<ChannelCD> = ChannelCD.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "identifier == %@", channel.identifier)
         guard let channelCR = try? CoreDataStack.shared.mainContext.fetch(fetchRequest).first else { return }
-        CoreDataStack.shared.mainContext.delete(channelCR)
-        try? CoreDataStack.shared.performSave(in: CoreDataStack.shared.mainContext)
+        CoreDataManager.shared.deleteChannel(channel: channelCR)
     }
 
     // MARK: Alert
@@ -241,8 +217,7 @@ extension ConversationsListViewController: UITableViewDelegate,
             let channel = self.fetchedResultsController.object(at: indexPath)
             //            let channel = self.channels[indexPath.row]
             self.reference.document(channel.identifier ?? "").delete()
-            CoreDataStack.shared.mainContext.delete(channel)
-            try? CoreDataStack.shared.performSave(in: CoreDataStack.shared.mainContext) // saveContext???
+            CoreDataManager.shared.deleteChannel(channel: channel)
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }

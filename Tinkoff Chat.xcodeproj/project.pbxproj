@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4D19B03026FA424F00055B63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D19B02F26FA424F00055B63 /* AppDelegate.swift */; };
 		4D19B03426FA424F00055B63 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D19B03326FA424F00055B63 /* ProfileViewController.swift */; };
-		4D19B03726FA424F00055B63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D19B03526FA424F00055B63 /* Main.storyboard */; };
+		4D19B03726FA424F00055B63 /* ConversationsList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D19B03526FA424F00055B63 /* ConversationsList.storyboard */; };
 		4D19B03926FA425400055B63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D19B03826FA425400055B63 /* Assets.xcassets */; };
 		4D19B03C26FA425400055B63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D19B03A26FA425400055B63 /* LaunchScreen.storyboard */; };
 		4D325B962732AD2900DD7103 /* Chat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D325B942732AD2900DD7103 /* Chat.xcdatamodeld */; };
@@ -18,6 +18,8 @@
 		4D3ECE1727282F7000A84A95 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3ECE1627282F7000A84A95 /* MessageModel.swift */; };
 		4D3ECE192728442A00A84A95 /* ChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3ECE182728442A00A84A95 /* ChannelModel.swift */; };
 		4D78A5F127454C870094BA93 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D78A5F027454C870094BA93 /* UIViewController.swift */; };
+		4D78A5FA27457C4E0094BA93 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D78A5F827457C4E0094BA93 /* Profile.storyboard */; };
+		4D78A5FC27457CCE0094BA93 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D78A5FB27457CCE0094BA93 /* CoreDataManager.swift */; };
 		4D939D552716E99F00D232C5 /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D939D532716E99E00D232C5 /* ThemesViewController.swift */; };
 		4D939D562716E99F00D232C5 /* ThemesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D939D542716E99E00D232C5 /* ThemesViewController.xib */; };
 		4D939D582716E9B500D232C5 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D939D572716E9B500D232C5 /* Theme.swift */; };
@@ -42,7 +44,7 @@
 		4D19B02C26FA424F00055B63 /* Tinkoff Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tinkoff Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D19B02F26FA424F00055B63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D19B03326FA424F00055B63 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		4D19B03626FA424F00055B63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4D19B03626FA424F00055B63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ConversationsList.storyboard; sourceTree = "<group>"; };
 		4D19B03826FA425400055B63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D19B03B26FA425400055B63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D19B03D26FA425400055B63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,6 +54,8 @@
 		4D3ECE1627282F7000A84A95 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		4D3ECE182728442A00A84A95 /* ChannelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelModel.swift; sourceTree = "<group>"; };
 		4D78A5F027454C870094BA93 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		4D78A5F927457C4E0094BA93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Tinkoff Chat/Base.lproj/Profile.storyboard"; sourceTree = SOURCE_ROOT; };
+		4D78A5FB27457CCE0094BA93 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		4D939D532716E99E00D232C5 /* ThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
 		4D939D542716E99E00D232C5 /* ThemesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemesViewController.xib; sourceTree = "<group>"; };
 		4D939D572716E9B500D232C5 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -116,7 +120,6 @@
 				4D19B02F26FA424F00055B63 /* AppDelegate.swift */,
 				4D78A5F227454D6D0094BA93 /* Extension */,
 				4DE0124927206BFE0047E9C0 /* ProfileViewController */,
-				4D19B03526FA424F00055B63 /* Main.storyboard */,
 				4D78A5F3274564120094BA93 /* Supporting Files */,
 				4D325B992732AE4800DD7103 /* CoreData */,
 				4D9C14CC270DFAB7002C2AF8 /* ConversationsList */,
@@ -131,6 +134,7 @@
 			children = (
 				4D325B942732AD2900DD7103 /* Chat.xcdatamodeld */,
 				4D325B972732AE3900DD7103 /* CoreDataStack.swift */,
+				4D78A5FB27457CCE0094BA93 /* CoreDataManager.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -157,6 +161,7 @@
 		4D9C14CC270DFAB7002C2AF8 /* ConversationsList */ = {
 			isa = PBXGroup;
 			children = (
+				4D19B03526FA424F00055B63 /* ConversationsList.storyboard */,
 				4D9C14C8270DCFE4002C2AF8 /* ConfigurableViewProtocol.swift */,
 				4D9C14C2270DC8ED002C2AF8 /* ConversationsListViewController.swift */,
 				4D3ECE182728442A00A84A95 /* ChannelModel.swift */,
@@ -217,6 +222,7 @@
 		4DE0124927206BFE0047E9C0 /* ProfileViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4D78A5F827457C4E0094BA93 /* Profile.storyboard */,
 				4D19B03326FA424F00055B63 /* ProfileViewController.swift */,
 				4DE01243271EEC6B0047E9C0 /* GCDDataManager.swift */,
 				4DE01247271EEDCF0047E9C0 /* OperationDataManager.swift */,
@@ -297,11 +303,12 @@
 			files = (
 				4D9C14D0270E1208002C2AF8 /* ConversationViewController.xib in Resources */,
 				4D9C14C7270DCF05002C2AF8 /* ConversationsListTableViewCell.xib in Resources */,
+				4D78A5FA27457C4E0094BA93 /* Profile.storyboard in Resources */,
 				4D3ECE152728296E00A84A95 /* GoogleService-Info.plist in Resources */,
 				4D19B03C26FA425400055B63 /* LaunchScreen.storyboard in Resources */,
 				4D19B03926FA425400055B63 /* Assets.xcassets in Resources */,
 				4D9C14D4270E1371002C2AF8 /* IncomingMessageTableViewCell.xib in Resources */,
-				4D19B03726FA424F00055B63 /* Main.storyboard in Resources */,
+				4D19B03726FA424F00055B63 /* ConversationsList.storyboard in Resources */,
 				4D939D562716E99F00D232C5 /* ThemesViewController.xib in Resources */,
 				4D9C14DA270E1994002C2AF8 /* OutgoingMessageTableViewCell.xib in Resources */,
 			);
@@ -376,6 +383,7 @@
 				4D19B03426FA424F00055B63 /* ProfileViewController.swift in Sources */,
 				4D9C14D3270E1371002C2AF8 /* IncomingMessageTableViewCell.swift in Sources */,
 				4DE01244271EEC6B0047E9C0 /* GCDDataManager.swift in Sources */,
+				4D78A5FC27457CCE0094BA93 /* CoreDataManager.swift in Sources */,
 				4D78A5F127454C870094BA93 /* UIViewController.swift in Sources */,
 				4D325B982732AE3900DD7103 /* CoreDataStack.swift in Sources */,
 				4D939D582716E9B500D232C5 /* Theme.swift in Sources */,
@@ -397,12 +405,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4D19B03526FA424F00055B63 /* Main.storyboard */ = {
+		4D19B03526FA424F00055B63 /* ConversationsList.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4D19B03626FA424F00055B63 /* Base */,
 			);
-			name = Main.storyboard;
+			name = ConversationsList.storyboard;
 			sourceTree = "<group>";
 		};
 		4D19B03A26FA425400055B63 /* LaunchScreen.storyboard */ = {
@@ -411,6 +419,14 @@
 				4D19B03B26FA425400055B63 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4D78A5F827457C4E0094BA93 /* Profile.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4D78A5F927457C4E0094BA93 /* Base */,
+			);
+			name = Profile.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

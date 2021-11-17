@@ -98,26 +98,7 @@ class ConversationViewController: UIViewController {
                 self.handleDocumentChange(change)
             }
             // Сохранение в CoreData
-            CoreDataStack.shared.performSave { [weak self] context in
-                guard let channel = self?.channel,
-                    let identifier = channel.identifier,
-                    let messages = self?.messages else { return }
-                let fetchRequest: NSFetchRequest<ChannelCD> = ChannelCD.fetchRequest()
-                fetchRequest.predicate = NSPredicate(format: "identifier == %@", identifier)
-                guard let channelCR = try? context.fetch(fetchRequest).first else { return }
-                
-                for message in messages {
-                    if (channelCR.messages?.first(where: { ($0 as? MessageCD)?.identifier == message.identifier })) == nil {
-                        let messageEntity = MessageCD(context: context)
-                        messageEntity.content = message.content
-                        messageEntity.created = message.created
-                        messageEntity.senderId = message.senderId
-                        messageEntity.senderName = message.senderName
-                        messageEntity.identifier = message.identifier
-                        channelCR.addToMessages(messageEntity)
-                    }
-                }
-            }
+            CoreDataManager.shared.saveMessages(channel: self.channel, messages: self.messages)
         }
     }
 

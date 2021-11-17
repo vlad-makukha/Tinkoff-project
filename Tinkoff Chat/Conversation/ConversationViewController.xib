@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,11 +26,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TAx-EX-RC2">
-                    <rect key="frame" x="0.0" y="10" width="414" height="802"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="768"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="10000" id="B0k-tY-OqE"/>
-                    </constraints>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KE5-aS-1ed">
                     <rect key="frame" x="0.0" y="812" width="414" height="50"/>
@@ -67,7 +64,7 @@
                     <constraints>
                         <constraint firstItem="uGD-IO-J8p" firstAttribute="leading" secondItem="KE5-aS-1ed" secondAttribute="leading" id="7f3-VZ-RkY"/>
                         <constraint firstItem="uGD-IO-J8p" firstAttribute="top" secondItem="KE5-aS-1ed" secondAttribute="top" id="Aca-Ap-YV6"/>
-                        <constraint firstItem="Uyr-VI-BxU" firstAttribute="trailing" secondItem="rMy-A8-C3S" secondAttribute="leading" id="NGf-QX-taQ"/>
+                        <constraint firstItem="rMy-A8-C3S" firstAttribute="leading" secondItem="Uyr-VI-BxU" secondAttribute="trailing" id="NGf-QX-taQ"/>
                         <constraint firstItem="rMy-A8-C3S" firstAttribute="top" secondItem="KE5-aS-1ed" secondAttribute="top" id="STH-4c-Zde"/>
                         <constraint firstAttribute="bottom" secondItem="Uyr-VI-BxU" secondAttribute="bottom" constant="10" id="Td1-P8-zkV"/>
                         <constraint firstAttribute="bottom" secondItem="rMy-A8-C3S" secondAttribute="bottom" id="Wn9-Dv-Klu"/>
@@ -85,10 +82,10 @@
                 <constraint firstItem="KE5-aS-1ed" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0fL-G4-Bgt"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TAx-EX-RC2" secondAttribute="trailing" id="WTG-gV-eua"/>
                 <constraint firstItem="TAx-EX-RC2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="XED-ZL-DRS"/>
-                <constraint firstItem="TAx-EX-RC2" firstAttribute="bottom" secondItem="KE5-aS-1ed" secondAttribute="top" id="csL-82-LZo"/>
+                <constraint firstItem="KE5-aS-1ed" firstAttribute="top" secondItem="TAx-EX-RC2" secondAttribute="bottom" id="csL-82-LZo"/>
                 <constraint firstItem="KE5-aS-1ed" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="evV-cb-5rY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="KE5-aS-1ed" secondAttribute="trailing" id="hzG-hw-jUz"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="TAx-EX-RC2" secondAttribute="top" constant="34" id="uq3-Ex-idI"/>
+                <constraint firstItem="TAx-EX-RC2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="uq3-Ex-idI"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="96.428571428571431"/>
         </view>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="k7H-cp-JdY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -14,11 +14,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ProfileViewController" customModule="Tinkoff_Chat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7bw-e8-PTX">
-                                <rect key="frame" x="87" y="80" width="240" height="240"/>
+                                <rect key="frame" x="87" y="124" width="240" height="240"/>
                                 <color key="backgroundColor" red="0.74956429697037652" green="0.81189310919378221" blue="0.039245757843085607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="BoW-Fw-dCW"/>
@@ -26,13 +26,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="MI0-IN-JPK">
-                                <rect key="frame" x="153" y="158" width="108.5" height="84"/>
+                                <rect key="frame" x="153" y="202" width="108.5" height="84"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="70"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXo-OW-ybs">
-                                <rect key="frame" x="62.5" y="703" width="289" height="40"/>
+                                <rect key="frame" x="62.5" y="757" width="289" height="40"/>
                                 <color key="backgroundColor" red="0.90523324553499518" green="0.90523324553499518" blue="0.90523324553499518" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="VVA-ou-rQl"/>
@@ -45,7 +45,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlg-e1-PsY">
-                                <rect key="frame" x="87" y="80" width="240" height="240"/>
+                                <rect key="frame" x="87" y="124" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mlg-e1-PsY" secondAttribute="height" multiplier="1:1" id="8bx-k4-ItV"/>
                                 </constraints>
@@ -57,18 +57,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3b-Mx-dvv">
-                                <rect key="frame" x="352" y="20" width="39" height="30"/>
+                                <rect key="frame" x="352" y="64" width="39" height="30"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Close"/>
                                 <connections>
                                     <action selector="closeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9wh-v2-953"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="m89-Us-FIX">
-                                <rect key="frame" x="188.5" y="385.5" width="37" height="37"/>
-                            </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="F3u-qE-7y1">
-                                <rect key="frame" x="87" y="369" width="240" height="200"/>
+                                <rect key="frame" x="87" y="413" width="240" height="200"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Maria Dudarenko" placeholder="Your name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QyU-zk-s1R">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="30.5"/>
@@ -97,7 +94,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="155" translatesAutoresizingMaskIntoConstraints="NO" id="70g-IP-GW9">
-                                <rect key="frame" x="62" y="751" width="290" height="35"/>
+                                <rect key="frame" x="62" y="805" width="290" height="35"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4V-hu-WIa">
                                         <rect key="frame" x="0.0" y="0.0" width="67" height="35"/>
@@ -132,9 +129,7 @@
                             <constraint firstItem="MI0-IN-JPK" firstAttribute="centerY" secondItem="7bw-e8-PTX" secondAttribute="centerY" id="5oQ-r0-uDf"/>
                             <constraint firstItem="F3u-qE-7y1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="6Q6-VN-hLs"/>
                             <constraint firstItem="70g-IP-GW9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="62" id="8Jc-4X-JLp"/>
-                            <constraint firstItem="m89-Us-FIX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9vY-1Z-fjD"/>
                             <constraint firstItem="F3u-qE-7y1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="AcD-Uo-VHO"/>
-                            <constraint firstItem="m89-Us-FIX" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Db2-wR-l2e"/>
                             <constraint firstItem="7bw-e8-PTX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DhG-5L-JSv"/>
                             <constraint firstItem="mlg-e1-PsY" firstAttribute="trailing" secondItem="7bw-e8-PTX" secondAttribute="trailing" id="Hx5-wP-HxF"/>
                             <constraint firstItem="70g-IP-GW9" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Igb-hi-HIY"/>
@@ -157,7 +152,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="BKt-KF-uaS"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="m89-Us-FIX" id="YUI-jo-hAw"/>
                         <outlet property="descriptionTextView" destination="Ad1-su-Xht" id="4P5-Bk-1Dw"/>
                         <outlet property="editButton" destination="mlg-e1-PsY" id="jUI-4G-Mkm"/>
                         <outlet property="editInfoButton" destination="aXo-OW-ybs" id="Qqz-Qg-59I"/>
@@ -172,76 +166,8 @@
             </objects>
             <point key="canvasLocation" x="722" y="-717"/>
         </scene>
-        <!--Tinkoff Chat-->
-        <scene sceneID="Aaw-lE-lgb">
-            <objects>
-                <viewController storyboardIdentifier="ConversationsListViewController" id="D4H-81-SKR" customClass="ConversationsListViewController" customModule="Tinkoff_Chat" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vIb-bh-w8A">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="V1H-kz-qVy">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="dOd-9t-4UK"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="V1H-kz-qVy" firstAttribute="leading" secondItem="dOd-9t-4UK" secondAttribute="leading" id="1uH-Ef-ifn"/>
-                            <constraint firstItem="V1H-kz-qVy" firstAttribute="centerX" secondItem="dOd-9t-4UK" secondAttribute="centerX" id="Gyu-NA-aW1"/>
-                            <constraint firstItem="V1H-kz-qVy" firstAttribute="centerY" secondItem="dOd-9t-4UK" secondAttribute="centerY" id="HSj-OR-qGN"/>
-                            <constraint firstItem="V1H-kz-qVy" firstAttribute="top" secondItem="dOd-9t-4UK" secondAttribute="top" id="o6d-8O-Tdl"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Tinkoff Chat" id="M6A-8l-mbb">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="GearIcon" id="Y2n-Uf-Qm2">
-                            <connections>
-                                <action selector="settingsButtonTapped:" destination="D4H-81-SKR" id="VcP-DN-gMU"/>
-                            </connections>
-                        </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="AHs-I6-g5b">
-                                <connections>
-                                    <action selector="addChannelTapped:" destination="D4H-81-SKR" id="gKh-rE-3mH"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Profile" id="qZi-Uv-59k">
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" id="qcq-Cz-wCE"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="tableView" destination="V1H-kz-qVy" id="EFI-Ao-S2m"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fVc-Qf-ByR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-31.884057971014496" y="62.946428571428569"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="hcT-2f-oGY">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="k7H-cp-JdY" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Hxp-AD-MHr">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="D4H-81-SKR" kind="relationship" relationship="rootViewController" id="Ila-NV-6F1"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uuV-mP-ufl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-970.39999999999998" y="63.418290854572717"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="GearIcon" width="25" height="25"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
