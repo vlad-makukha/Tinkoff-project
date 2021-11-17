@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Firebase
 import CoreData
 
 class ConversationsListViewController: UIViewController {
@@ -16,10 +15,6 @@ class ConversationsListViewController: UIViewController {
     @IBOutlet weak var profileImageButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
 
-    private lazy var dataBase = Firestore.firestore()
-    private lazy var reference = dataBase.collection("channels")
-    private var channels = [Channel]()
-    private var channelListener: ListenerRegistration?
     private lazy var fetchedResultsController: NSFetchedResultsController<ChannelCD> = {
         let fetchRequest: NSFetchRequest<ChannelCD> = ChannelCD.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
@@ -49,18 +44,7 @@ class ConversationsListViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        channelListener = reference.addSnapshotListener { querySnapshot, error in
-            guard let snapshot = querySnapshot else {
-                print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
-                return
-            }
-
-            snapshot.documentChanges.forEach { change in
-                self.handleDocumentChange(change)
-            }
-            // Сохранение в CoreData
-            CoreDataManager.shared.saveChannels(channels: self.channels)
-        }
+        FirebaseManager.shared.getChannels()
     }
 
     // MARK: - Methods
@@ -69,10 +53,10 @@ class ConversationsListViewController: UIViewController {
         let themesVC = ThemesViewController()
         themesVC.title = "Settings"
 
-        // делегат
+        // MARK: - Delegate
         // themesVC.delegate = self
 
-        // замыкание
+        // MARK: - Closure
         themesVC.themeApplied = { [weak self] in
             self?.tableView.backgroundColor = Theme.current.backgroundColor
             self?.view.backgroundColor = Theme.current.backgroundColor
@@ -94,8 +78,6 @@ class ConversationsListViewController: UIViewController {
         view.backgroundColor = Theme.current.backgroundColor
     }
 
-    // MARK: - Firebase interaction
-
     @IBAction func addChannelTapped(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: "Создание нового канала",
                                                 message: "Введите имя нового канала", preferredStyle: .alert)
@@ -106,63 +88,14 @@ class ConversationsListViewController: UIViewController {
             guard let textField = alertController.textFields?.first, textField.text != ""
             else { self?.showErrorAlertController(withText: "Название канала не должно быть пустым!")
                 return }
-            if let channelText = textField.text {
-                self?.reference.addDocument(data: ["name": channelText])
+            if let channelName = textField.text {
+                FirebaseManager.shared.addChannel(name: channelName)
             }
         }
         let cancel = UIAlertAction(title: "Отмена", style: .default, handler: nil)
         alertController.addAction(save)
         alertController.addAction(cancel)
         present(alertController, animated: true, completion: nil)
-    }
-
-    private func handleDocumentChange(_ change: DocumentChange) {
-        guard let channel = Channel(document: change.document) else {
-            return
-        }
-
-        switch change.type {
-        case .added:
-            addChannelToTable(channel)
-
-        case .modified:
-            updateChannelInTable(channel)
-
-        case .removed:
-            removeChannelFromTable(channel)
-        }
-    }
-
-    private func addChannelToTable(_ channel: Channel) {
-        guard !channels.contains(channel) else {
-            return
-        }
-        channels.append(channel)
-        channels.sort()
-        
-        //        guard let index = channels.firstIndex(of: channel) else {
-        //            return
-        //        }
-        //        tableView.insertRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-    }
-    
-    private func updateChannelInTable(_ channel: Channel) {
-        guard let index = channels.firstIndex(of: channel) else {
-            return
-        }
-        channels[index] = channel
-        //        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-    }
-    
-    private func removeChannelFromTable(_ channel: Channel) {
-        guard let index = channels.firstIndex(of: channel) else {
-            return
-        }
-        channels.remove(at: index)
-        let fetchRequest: NSFetchRequest<ChannelCD> = ChannelCD.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "identifier == %@", channel.identifier)
-        guard let channelCR = try? CoreDataStack.shared.mainContext.fetch(fetchRequest).first else { return }
-        CoreDataManager.shared.deleteChannel(channel: channelCR)
     }
 
     // MARK: Alert
@@ -215,8 +148,7 @@ extension ConversationsListViewController: UITableViewDelegate,
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
             let channel = self.fetchedResultsController.object(at: indexPath)
-            //            let channel = self.channels[indexPath.row]
-            self.reference.document(channel.identifier ?? "").delete()
+            FirebaseManager.shared.deleteChannel(channel: channel)
             CoreDataManager.shared.deleteChannel(channel: channel)
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Firebase
 import CoreData
 
 class ConversationViewController: UIViewController {
@@ -23,11 +22,6 @@ class ConversationViewController: UIViewController {
     private let channel: ChannelCD
     private let incomingCellIdentifier = String(describing: IncomingMessageTableViewCell.self)
     private let outgoingCellIdentifier = String(describing: OutgoingMessageTableViewCell.self)
-    private lazy var dataBase = Firestore.firestore()
-    private lazy var reference = dataBase.collection("channels")
-    private let storage = Storage.storage().reference()
-    private var messages: [Message] = []
-    private var messageListener: ListenerRegistration?
     private var lastIndexPath: IndexPath? {
         let section = numberOfSections(in: tableView) - 1
         if section >= 0 {
@@ -63,15 +57,10 @@ class ConversationViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    deinit {
-        messageListener?.remove()
-    }
-
     // MARK: - UIViewController lifecycle methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        reference = dataBase.collection("channels").document(channel.identifier ?? "").collection("messages")
         setupTableView()
         addNotificationKeyboardObserver()
 
@@ -87,19 +76,7 @@ class ConversationViewController: UIViewController {
         super.viewWillAppear(animated)
         bottomBarView.backgroundColor = Theme.current.backgroundColor
         bottomBarTextView.backgroundColor = Theme.current.textBackgroundColor
-
-        messageListener = reference.addSnapshotListener { querySnapshot, error in
-            guard let snapshot = querySnapshot else {
-                print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
-                return
-            }
-
-            snapshot.documentChanges.forEach { change in
-                self.handleDocumentChange(change)
-            }
-            // Сохранение в CoreData
-            CoreDataManager.shared.saveMessages(channel: self.channel, messages: self.messages)
-        }
+        FirebaseManager.shared.getMessages(channel: channel)
     }
 
     override func viewDidLayoutSubviews() {
@@ -141,49 +118,13 @@ class ConversationViewController: UIViewController {
         }
     }
 
-    // MARK: - Firebase interaction
-
-    private func sendMessage(_ message: Message) {
-        reference.addDocument(data: message.representation) { error in
-            if let error = error {
-                print("Error sending message: \(error.localizedDescription)")
-                return
-            }
-            self.scrollToBottom()
-            }
-        }
-
-    private func insertNewMessage(_ message: Message) {
-        guard !messages.contains(message) else {
-            return
-        }
-        messages.append(message)
-        messages.sort()
-    }
-
-    private func handleDocumentChange(_ change: DocumentChange) {
-        guard let message = Message(document: change.document) else {
-            return
-        }
-
-        switch change.type {
-        case .added:
-            insertNewMessage(message)
-            DispatchQueue.main.async {
-                self.scrollToBottom()
-            }
-        default:
-            break
-        }
-    }
-
     @IBAction func sendButtonTapped(_ sender: UIButton) {
         guard let text = bottomBarTextView.text, text != ""
         else { return }
 
         let message = Message(content: text)
-        sendMessage(message)
-        bottomBarTextView.text = ""
+        FirebaseManager.shared.sendMessage(message)
+        self.bottomBarTextView.text = ""
     }
 
     // MARK: - Work with keyboard
