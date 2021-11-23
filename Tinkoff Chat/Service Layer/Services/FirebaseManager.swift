@@ -94,6 +94,7 @@ class FirebaseManager {
     func getMessages(channel: ChannelCD) {
         messagesReference = channelsReference.document(channel.identifier ?? "").collection("messages")
         messageListener = messagesReference?.addSnapshotListener { querySnapshot, error in
+            self.messages = []
             guard let snapshot = querySnapshot else {
                 print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
                 return
