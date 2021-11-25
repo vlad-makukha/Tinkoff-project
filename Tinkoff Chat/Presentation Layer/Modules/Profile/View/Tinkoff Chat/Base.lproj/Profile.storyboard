@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7bw-e8-PTX">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7bw-e8-PTX">
                                 <rect key="frame" x="87" y="124" width="240" height="240"/>
                                 <color key="backgroundColor" red="0.74956429697037652" green="0.81189310919378221" blue="0.039245757843085607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
