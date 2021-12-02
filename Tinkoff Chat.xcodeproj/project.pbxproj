@@ -30,6 +30,8 @@
 		4D78A5FA27457C4E0094BA93 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D78A5F827457C4E0094BA93 /* Profile.storyboard */; };
 		4D78A5FC27457CCE0094BA93 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D78A5FB27457CCE0094BA93 /* CoreDataManager.swift */; };
 		4D78A5FE274581760094BA93 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D78A5FD274581760094BA93 /* FirebaseManager.swift */; };
+		4D8A9C102758E9AE004A16E9 /* AnimationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A9C0F2758E9AE004A16E9 /* AnimationHandler.swift */; };
+		4D8A9C132758ECF1004A16E9 /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A9C122758ECF1004A16E9 /* AnimationManager.swift */; };
 		4D939D552716E99F00D232C5 /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D939D532716E99E00D232C5 /* ThemesViewController.swift */; };
 		4D939D562716E99F00D232C5 /* ThemesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D939D542716E99E00D232C5 /* ThemesViewController.xib */; };
 		4D939D582716E9B500D232C5 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D939D572716E9B500D232C5 /* Theme.swift */; };
@@ -76,6 +78,8 @@
 		4D78A5F927457C4E0094BA93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Tinkoff Chat/Presentation Layer/Modules/Profile/View/Tinkoff Chat/Base.lproj/Profile.storyboard"; sourceTree = SOURCE_ROOT; };
 		4D78A5FB27457CCE0094BA93 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		4D78A5FD274581760094BA93 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		4D8A9C0F2758E9AE004A16E9 /* AnimationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationHandler.swift; sourceTree = "<group>"; };
+		4D8A9C122758ECF1004A16E9 /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
 		4D939D532716E99E00D232C5 /* ThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
 		4D939D542716E99E00D232C5 /* ThemesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemesViewController.xib; sourceTree = "<group>"; };
 		4D939D572716E9B500D232C5 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -219,6 +223,7 @@
 		4D78A600274590D90094BA93 /* Presentation Layer */ = {
 			isa = PBXGroup;
 			children = (
+				4D8A9C0E2758E97B004A16E9 /* Animation */,
 				4D78A5FF274590C20094BA93 /* Modules */,
 			);
 			path = "Presentation Layer";
@@ -338,6 +343,15 @@
 				4D78A60D274593D90094BA93 /* Services */,
 			);
 			path = "Service Layer";
+			sourceTree = "<group>";
+		};
+		4D8A9C0E2758E97B004A16E9 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				4D8A9C0F2758E9AE004A16E9 /* AnimationHandler.swift */,
+				4D8A9C122758ECF1004A16E9 /* AnimationManager.swift */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 		4D9C14CC270DFAB7002C2AF8 /* ConversationsList */ = {
@@ -567,6 +581,7 @@
 				4D260BFE274D1ACE00C121A4 /* Requests.swift in Sources */,
 				4D260BFC274D1A7600C121A4 /* RequestSender.swift in Sources */,
 				4D9C14CF270E1208002C2AF8 /* ConversationViewController.swift in Sources */,
+				4D8A9C102758E9AE004A16E9 /* AnimationHandler.swift in Sources */,
 				4D9C14C9270DCFE4002C2AF8 /* ConfigurableViewProtocol.swift in Sources */,
 				4D3ECE192728442A00A84A95 /* ChannelModel.swift in Sources */,
 				4D9C14C6270DCF05002C2AF8 /* ConversationsListTableViewCell.swift in Sources */,
@@ -574,6 +589,7 @@
 				4D3ECE1727282F7000A84A95 /* MessageModel.swift in Sources */,
 				4D260BF6274D19C500C121A4 /* ParserProtocol.swift in Sources */,
 				4D9C14C3270DC8ED002C2AF8 /* ConversationsListViewController.swift in Sources */,
+				4D8A9C132758ECF1004A16E9 /* AnimationManager.swift in Sources */,
 				4DE01248271EEDCF0047E9C0 /* OperationDataManager.swift in Sources */,
 				4D939D552716E99F00D232C5 /* ThemesViewController.swift in Sources */,
 				4D260C06274D1D8500C121A4 /* PicturesViewController.swift in Sources */,

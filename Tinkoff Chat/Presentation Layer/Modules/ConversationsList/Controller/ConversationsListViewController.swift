@@ -12,7 +12,7 @@ class ConversationsListViewController: UIViewController {
 
     // MARK: - Properties
 
-    @IBOutlet weak var profileImageButton: UIBarButtonItem!
+    @IBOutlet weak var profileImageButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
 
     private lazy var fetchedResultsController: NSFetchedResultsController<ChannelCD> = {
@@ -97,6 +97,10 @@ class ConversationsListViewController: UIViewController {
         alertController.addAction(cancel)
         present(alertController, animated: true, completion: nil)
     }
+    
+    @IBAction func profileButtonTapped(_ sender: UIButton) {
+            performSegue(withIdentifier: "showProfile", sender: sender)
+        }
 
     // MARK: Alert
 
@@ -202,3 +206,32 @@ extension ConversationsListViewController: UITableViewDelegate,
 //        self.navigationController?.navigationBar.isTranslucent = false
 //    }
 // }
+
+// MARK: - Prepare for Segue
+
+extension ConversationsListViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let profileViewController = segue.destination as? ProfileViewController else { return }
+        profileViewController.transitioningDelegate = self
+        profileViewController.modalPresentationStyle = .overCurrentContext
+    }
+}
+
+// MARK: - UIViewControllerTransitioningDelegate
+
+extension ConversationsListViewController: UIViewControllerTransitioningDelegate {
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        guard let imageSuperview = profileImageButton.superview else { return nil }
+        let transition = AnimationManager(duration: 0.8)
+        transition.originFrame = imageSuperview.convert(profileImageButton.frame, to: nil)
+        transition.originFrame = CGRect(
+            x: transition.originFrame.origin.x,
+            y: transition.originFrame.origin.y,
+            width: transition.originFrame.size.width - 40,
+            height: transition.originFrame.size.height - 40
+        )
+        return transition
+    }
+    
+}

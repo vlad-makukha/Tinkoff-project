@@ -76,14 +76,18 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate,
 
     // MARK: User interaction
 
-    @IBAction func closeButtonTapped(_ sender: UIButton) {
-        presentingViewController?.dismiss(animated: true, completion: nil)
-    }
+//    @IBAction func closeButtonTapped(_ sender: UIButton) {
+//        presentingViewController?.dismiss(animated: true, completion: nil)
+//    }
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+           dismiss(animated: true)
+       }
     @IBAction func editInfoButtonTapped(_ sender: UIButton) {
         changeItemsConfigure()
         if !isProfileEditing {
             loadTextData()
-        }
+            stopButtonAnimation()
+        } else { startButtonAnimation(button: sender) }
     }
     @IBAction func gcdSaveButtonTapped(_ sender: UIButton) {
         changeItemsConfigure()
@@ -116,13 +120,43 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate,
         nameTextField.isEnabled = !nameTextField.isEnabled
         descriptionTextView.isEditable = !descriptionTextView.isEditable
     }
-
+    
+    // MARK: Button animation
+    
+    private func startButtonAnimation(button: UIButton) {
+        
+        let rotation = CAKeyframeAnimation(keyPath: "transform.rotation")
+        rotation.values = [0, NSNumber(value: Double.pi / 10), 0, NSNumber(value: -Double.pi / 10), 0]
+        rotation.isCumulative = true
+        
+        let translationX = CAKeyframeAnimation(keyPath: "transform.translation.x")
+        translationX.values = [0, -5, 0, 5]
+        translationX.isAdditive = true
+        
+        let translationY = CAKeyframeAnimation(keyPath: "transform.translation.y")
+        translationY.values = [0, -5, 0, 5]
+        translationY.isAdditive = true
+        
+        let group = CAAnimationGroup()
+        group.duration = 0.3
+        group.repeatCount = .infinity
+        group.autoreverses = true
+        group.animations = [rotation, translationX, translationY]
+        group.fillMode = .removed
+        button.layer.add(group, forKey: "shakeIt")
+    }
+    
+    private func stopButtonAnimation() {
+        self.editInfoButton.layer.removeAnimation(forKey: "shakeIt")
+    }
+    
     // MARK: - Work with datamanagers
 
     private func saveDataToFile(isWithGCD: Bool) {
         guard let name = nameTextField.text, let description = descriptionTextView.text, nameTextField.text != "", descriptionTextView.text != ""
             else { presentAlertWithTitle(title: "Ошибка", message: "Имя и описание профиля должны быть заполнены", options: "ОК") { (_) in
             }
+                changeItemsConfigure()
                 return }
         if isWithGCD {
             GCDDataManager.saveTextDataToFiles(name: name,
@@ -135,6 +169,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate,
                                                      isNameChanged: isProfileNameChanged,
                                                      isDescriptionChanged: isProfileDescriptionChanged)
         }
+        stopButtonAnimation()
     }
     
     private func loadTextData() {

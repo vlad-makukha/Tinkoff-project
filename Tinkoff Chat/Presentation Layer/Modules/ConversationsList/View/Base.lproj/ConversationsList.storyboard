@@ -43,14 +43,22 @@
                                     <action selector="addChannelTapped:" destination="D4H-81-SKR" id="gKh-rE-3mH"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Profile" id="qZi-Uv-59k">
-                                <connections>
-                                    <segue destination="Z5v-pl-uq0" kind="presentation" id="qcq-Cz-wCE"/>
-                                </connections>
+                            <barButtonItem title="Item" id="36f-4d-yOm">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="dbG-ie-Pmm">
+                                    <rect key="frame" x="261.5" y="5" width="92" height="34.5"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Profile"/>
+                                    <connections>
+                                        <action selector="profileButtonTapped:" destination="D4H-81-SKR" eventType="touchUpInside" id="8ra-5D-m2M"/>
+                                        <segue destination="Z5v-pl-uq0" kind="presentation" identifier="showProfile" id="Nhm-6H-2Um"/>
+                                    </connections>
+                                </button>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="profileImageButton" destination="dbG-ie-Pmm" id="uD5-Ed-LqE"/>
                         <outlet property="tableView" destination="V1H-kz-qVy" id="EFI-Ao-S2m"/>
                     </connections>
                 </viewController>
