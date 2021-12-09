@@ -8,7 +8,13 @@
 import Foundation
 import CoreData
 
-class CoreDataManager {
+protocol CoreDataService {
+    func saveChannels(channels: [Channel])
+    func deleteChannel(channel: ChannelCD)
+    func saveMessages(channel: ChannelCD, messages: [Message])
+}
+
+class CoreDataManager: CoreDataService {
     
     private init() {}
     static let shared = CoreDataManager()

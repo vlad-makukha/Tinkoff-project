@@ -13,16 +13,9 @@ class TinkoffChatUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         XCUIApplication().navigationBars["Tinkoff Chat"].buttons["Profile"].tap()
-        XCTAssertTrue(app.textFields.element.firstMatch.exists)
-        XCTAssertTrue(app.textViews.element.firstMatch.exists)
-    }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+//        XCTAssertTrue(app.textFields.element.firstMatch.exists)
+//        XCTAssertTrue(app.textViews.element.firstMatch.exists)
+        XCTAssertTrue(app.textFields.element.firstMatch.waitForExistence(timeout: 1))
+        XCTAssertTrue(app.textViews.element.firstMatch.waitForExistence(timeout: 1))
     }
 }

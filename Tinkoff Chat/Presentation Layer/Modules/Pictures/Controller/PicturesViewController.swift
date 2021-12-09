@@ -12,6 +12,7 @@ class PicturesViewController: UIViewController {
     private let activityIndicator = UIActivityIndicatorView()
     private let cellIdentifier = String(describing: PicturesCollectionViewCell.self)
     private var pictureLinks = [PictureLinkModel]()
+    private let picturesManager = PicturesManager(requestSender: RequestSender())
     private let edgeSpace: CGFloat = 8.0
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -65,7 +66,7 @@ class PicturesViewController: UIViewController {
     
     private func loadPicturesLinksList() {
         activityIndicator.startAnimating()
-        PicturesManager.shared.loadPicuresLinks { [weak self] picturesLinks, error in
+        picturesManager.loadPicuresLinks { [weak self] picturesLinks, error in
             guard error == nil
                 else { self?.presentAlertWithTitle(title: "Ошибка", message: error!, options: "ОК") { (_) in
                     }
@@ -108,7 +109,7 @@ extension PicturesViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let pictureCell = cell as? PicturesCollectionViewCell,
             let pictureUrl = URL(string: pictureLinks[indexPath.row].url) else { return }
-        PicturesManager.shared.loadPicture(from: pictureUrl) { (picture, error) in
+        picturesManager.loadPicture(from: pictureUrl) { (picture, error) in
             guard error == nil,
                 let image = picture else { return }
             DispatchQueue.main.async {

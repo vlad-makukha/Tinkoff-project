@@ -14,10 +14,10 @@ protocol PicturesService {
 }
 
 class PicturesManager: PicturesService {
-    
-    private init() {}
-    static let shared = PicturesManager()
-    private let requestSender: RequestSenderProtocol = RequestSender()
+    var requestSender: RequestSenderProtocol
+    init(requestSender: RequestSenderProtocol) {
+          self.requestSender = requestSender
+      }
     
     func loadPicuresLinks(completionHandler: @escaping ([PictureLinkModel]?, String?) -> Void) {
         let requestConfig = RequestsFactory.PictureRequests.picturesLinksConfig()
