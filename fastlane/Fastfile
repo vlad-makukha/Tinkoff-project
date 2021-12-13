@@ -13,7 +13,7 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
-webhook_url = https://discord.com/api/webhooks/916363769377095710/poSDRAcgM85utckmM9Ke603HkZXQCjZsNV7sH-uJ5e8TmlMlJhIIimeDuZX8JeDooLPg
+webhook_url =ENV['https://discord.com/api/webhooks/916363769377095710/poSDRAcgM85utckmM9Ke603HkZXQCjZsNV7sH-uJ5e8TmlMlJhIIimeDuZX8JeDooLPg']
 notification = "Test build Succeeded"
 
 desc "Install dependencies and build for testing"
