@@ -136,17 +136,16 @@ enum Theme: Int {
         // saving theme value to UserDefaults with GCD
         let queue = DispatchQueue.global(qos: .utility)
         queue.async {
-            UserDefaults.standard.set(rawValue, forKey: Keys.selectedTheme)
+            UserDefaults.standard.set(self.rawValue, forKey: Keys.selectedTheme)
         }
         UserDefaults.standard.synchronize()
-
+        
         UIApplication.shared.delegate?.window??.tintColor = mainColor
         UILabel.appearance().textColor = textColor
         UITextField.appearance().textColor = textColor
         UITextView.appearance().textColor = textColor
         UITextView.appearance().backgroundColor = backgroundColor
         //        UIActivityIndicatorView.appearance().color = mainColor
-
         UINavigationBar.appearance().barStyle = barStyle
         UINavigationBar.appearance().isTranslucent = false
         UITableView.appearance().backgroundColor = backgroundColor

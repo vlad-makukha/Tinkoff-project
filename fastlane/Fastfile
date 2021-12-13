@@ -1,0 +1,56 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+webhook_url = ENV['DISCORD_WEBHOOK_URL']
+notification = "Test build Succeeded"
+
+desc "Install dependencies and build for testing"
+lane :build_for_testing do
+  cocoapods
+  scan(
+    build_for_testing: true
+  )
+  discord_notification
+end
+
+desc "Run tests without building"
+lane :run_tests do
+  scan(
+  test_without_building: true
+  )
+end
+
+desc "Install dependencies, build and run tests"
+lane :build_and_test do
+  build_for_testing
+  run_tests
+end
+
+desc "Send discord notification"
+lane :discord_notification do
+  discord_notifier(
+    webhook_url: webhook_url,
+    title: "Tinkoff Chat (vlad-makukha)",
+    description: notification
+  )
+end
+
+error do |lane, exception|
+  if lane.to_s == "build_for_testing"
+    notification = "Test build Failed"
+    discord_notification
+  end
+end
+

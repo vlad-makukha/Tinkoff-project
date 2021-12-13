@@ -67,10 +67,12 @@ class PicturesViewController: UIViewController {
     private func loadPicturesLinksList() {
         activityIndicator.startAnimating()
         picturesManager.loadPicuresLinks { [weak self] picturesLinks, error in
-            guard error == nil
-                else { self?.presentAlertWithTitle(title: "Ошибка", message: error!, options: "ОК") { (_) in
-                    }
-                    return }
+            if let error = error {
+                        self?.presentAlertWithTitle(title: "Ошибка", message: error, options: "ОК") { (_) in
+                        }
+                        self?.activityIndicator.stopAnimating()
+                        return
+                        }
             guard let picturesLinksList = picturesLinks else { return }
             self?.pictureLinks = picturesLinksList
             DispatchQueue.main.async {

@@ -1,0 +1,12 @@
+//
+//  Config.xcconfig
+//  Tinkoff Chat
+//
+//  Created by Владислав Макуха on 13.12.2021.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+PIXABAY_API = pixabay.com/api/
+PIXABAY_TOKEN = 12818092-07a391b912d5dad3805e53a87

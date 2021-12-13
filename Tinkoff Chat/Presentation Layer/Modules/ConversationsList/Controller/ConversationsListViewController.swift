@@ -35,6 +35,7 @@ class ConversationsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        navigationController?.navigationBar.isTranslucent = true
         // Do any additional setup after loading the view.
     }
 
@@ -63,7 +64,7 @@ class ConversationsListViewController: UIViewController {
             self?.navigationController?.navigationBar.barStyle = Theme.current.barStyle
             self?.navigationController?.navigationBar.titleTextAttributes =
             [NSAttributedString.Key.foregroundColor: Theme.current.textColor]
-            self?.navigationController?.navigationBar.isTranslucent = false
+            self?.navigationController?.navigationBar.isTranslucent = true
         }
 
         navigationController?.pushViewController(themesVC, animated: false)

@@ -13,21 +13,21 @@ protocol RequestProtocol {
 
 class PicturesListRequest: RequestProtocol {
     
-    private var baseUrl: String = "https://pixabay.com/api/"
-    private var apiKey: String
+    private let baseUrl = Bundle.main.object(forInfoDictionaryKey: "PIXABAY_API") as? String
+    private let token = Bundle.main.object(forInfoDictionaryKey: "PIXABAY_TOKEN") as? String
     private var resultsLimit: Int
-    private var getParameters: [String: String] {
-        return ["key": apiKey,
-                "per_page": "\(resultsLimit)"]
-    }
     
-    private var urlString: String {
-        let getParams = getParameters.compactMap({ "\($0.key)=\($0.value)"}).joined(separator: "&")
-        return baseUrl + "?" + getParams
+    private func getUrlString(baseUrl: String, key: String) -> String {
+            let parametrs: [String: String] = ["key": key,
+            "per_page": "\(resultsLimit)"]
+            let query = parametrs.compactMap({ "\($0.key)=\($0.value)"}).joined(separator: "&")
+            return baseUrl + "?" + query
     }
     
     // MARK: - Request
     var urlRequest: URLRequest? {
+        guard let baseUrl = baseUrl, let token = token else { return nil}
+        let urlString = getUrlString(baseUrl: baseUrl, key: token)
         if let url = URL(string: urlString) {
             return URLRequest(url: url)
         }
@@ -35,8 +35,7 @@ class PicturesListRequest: RequestProtocol {
     }
     
     // MARK: - Initialization
-    init(apiKey: String, limit: Int = 100) {
-        self.apiKey = apiKey
+    init(limit: Int = 100) {
         self.resultsLimit = limit
     }
 }
