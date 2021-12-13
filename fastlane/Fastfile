@@ -22,9 +22,7 @@ DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/916363769377095710/poSDR
   discord(
     url: DISCORD_WEBHOOK_URL ,
     app_name: 'Tinkoff Chat (vlad-makukha)',
-    platform: 'ios', 
-    version: VERSION,
-    build_number: BUILD_NUMBER
+    platform: 'ios'
   )
 
 
