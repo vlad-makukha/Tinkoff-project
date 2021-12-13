@@ -16,6 +16,18 @@
 webhook_url = ENV['DISCORD_WEBHOOK_URL']
 notification = "Test build Succeeded"
 
+DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/916363769377095710/poSDRAcgM85utckmM9Ke603HkZXQCjZsNV7sH-uJ5e8TmlMlJhIIimeDuZX8JeDooLPg'
+
+  # Notify discord about the new build
+  discord(
+    url: DISCORD_WEBHOOK_URL ,
+    app_name: 'Tinkoff Chat (vlad-makukha)',
+    platform: 'ios', 
+    version: VERSION,
+    build_number: BUILD_NUMBER
+  )
+
+
 desc "Install dependencies and build for testing"
 lane :build_for_testing do
   cocoapods
